@@ -34,9 +34,9 @@ class BossDAO extends DAO{
         return $this->buildObject($boss);
     }
 
-    public function addBoss(Parameter $post, $userId){
-        $sql = 'INSERT INTO boss (title, content, createdAt, user_id) VALUES (?, ?, NOW(), ?)';
-        $this->createQuery($sql, [$post->get('title'), $post->get('content'), $userId]);
+    public function addBoss(Parameter $post, $userId, $raidId){
+        $sql = 'INSERT INTO boss (title, content, createdAt, user_id, raid_id) VALUES (?, ?, NOW(), ?, ?)';
+        $this->createQuery($sql, [$post->get('title'), $post->get('content'), $userId, $raidId]);
     }
     public function editBoss(Parameter $post, $bossId, $userId){
         $sql = 'UPDATE boss SET title=:title, content=:content, user_id=:user_id WHERE id=:bossId';
@@ -52,5 +52,16 @@ class BossDAO extends DAO{
         $this->createQuery($sql, [$bossId]);
         $sql = 'DELETE FROM boss WHERE id = ?';
         $this->createQuery($sql, [$bossId]);
+    }
+    public function getBossFromRaid($raidId){
+        $sql = 'SELECT boss.id, boss.title,boss.content, boss.createdAt, user.pseudo FROM boss INNER JOIN user ON boss.user_id = user.id WHERE raid_id = ? ORDER BY createdAt DESC';
+        $result = $this->createQuery($sql, [$raidId]);
+        $allBoss = [];
+        foreach($result as $row){
+            $bossId = $row['id'];
+            $allBoss[$bossId] = $this->buildObject($row);
+        }
+        $result->closeCursor();
+        return $allBoss;
     }
 }

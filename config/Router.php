@@ -29,10 +29,13 @@ class Router{
                     $this->frontController->boss($this->request->getGet()->get('bossId'));
                 }
                 elseif ($route === 'addBoss'){
-                    $this->backController->addBoss($this->request->getPost());
+                    $this->backController->addBoss($this->request->getPost(), $this->request->getGet()->get('raidId'));
                 }
                 elseif ($route === 'extension'){
                     $this->frontController->extension($this->request->getGet()->get('extensionId'));
+                }
+                elseif ($route === 'raid'){
+                    $this->frontController->raid($this->request->getGet()->get('raidId'));
                 }
                 elseif ($route === 'editBoss'){
                     $this->backController->editBoss($this->request->getPost(), $this->request->getGet()->get('bossId'));
@@ -78,6 +81,9 @@ class Router{
                 }
                 elseif ($route === 'addExtension'){
                     $this->backController->addExtension($this->request->getPost());
+                }
+                elseif ($route === 'addRaid'){
+                    $this->backController->addRaid($this->request->getPost(), $this->request->getGet()->get('extensionId'));
                 }
                 else{
                     $this->errorController->errorNotFound();

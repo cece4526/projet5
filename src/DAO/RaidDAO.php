@@ -9,7 +9,6 @@ class RaidDAO extends DAO {
         $raid = new Raid();
         $raid->setId($row['id']);
         $raid->setTitle($row['title']);
-        $raid->setAuthor($row['pseudo']);
         $raid->setCreatedAt($row['createdAt']);
         return $raid;
     }
@@ -20,21 +19,23 @@ class RaidDAO extends DAO {
         $allRaids = [];
         foreach($result as $row){
             $raidId = $row['id'];
-            $allraids[$raidId] = $this->buildObject($row);
+            $allRaids[$raidId] = $this->buildObject($row);
         }
         $result->closeCursor();
-        return $allraids;
+        return $allRaids;
     }
 
     public function getOneraid($raidId){
-        $sql = 'SELECT raid.id, raid.title, user.pseudo, raid.createdAt FROM raid INNER JOIN user ON raid.user_id = user.id WHERE raid.id = ?';
+        $sql = 'SELECT raid.id, raid.title, raid.createdAt FROM raid WHERE raid.id = ?';
         $result = $this->createQuery($sql, [$raidId]);
         $raid = $result->fetch();
         $result->closeCursor();
         return $this->buildObject($raid);
+        var_dump($raid);
+        die;
     }
     public function addraid(Parameter $post, $userId){
-        $sql = 'INSERT INTO raid (title, createdAt, user_id) VALUES (?, ?, NOW(), ?)';
+        $sql = 'INSERT INTO raid (title, createdAt, extension_id) VALUES (?, NOW(), ?)';
         $this->createQuery($sql, [$post->get('title'), $userId]);
     }
 }

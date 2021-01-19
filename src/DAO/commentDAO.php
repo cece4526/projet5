@@ -16,7 +16,7 @@ class CommentDAO extends DAO{
     }
 
     public function getCommentsFromBoss($bossId){
-        $sql = 'SELECT id, pseudo, content, createdAt, flag FROM comment WHERE boss_id = ? ORDER BY createdAt DESC';
+        $sql = 'SELECT comment.id, comment.content, comment.createdAt, user.pseudo, comment.flag FROM comment INNER JOIN user ON comment.user_id = user.id  WHERE boss_id = ? ORDER BY createdAt DESC';
         $result = $this->createQuery($sql, [$bossId]);
         $allComments = [];
         foreach($result as $row){
@@ -26,9 +26,9 @@ class CommentDAO extends DAO{
         $result->closeCursor();
         return $allComments;
     }
-    public function addComment(Parameter $post, $bossId){
-        $sql = 'INSERT INTO comment (pseudo, content, createdAt, boss_id) VALUES (?, ?, NOW(), ?)';
-        $this->createQuery($sql, [$post->get('pseudo'), $post->get('content'), $bossId]);
+    public function addComment(Parameter $post, $bossId, $userId){
+        $sql = 'INSERT INTO comment (pseudo, content, createdAt, boss_id, user_id) VALUES (?, ?, NOW(), ?, ?)';
+        $this->createQuery($sql, [$post->get('pseudo'), $post->get('content'), $bossId, $userId]);
     }
     public function flagComment($commentId){
         $sql = 'UPDATE comment SET flag = ? WHERE id = ?';

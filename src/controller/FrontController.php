@@ -6,7 +6,7 @@ use App\src\DAO\ExtensionDAO;
 
 class FrontController extends Controller{
     public function home(){
-        $boss = $this->BossDAO->getAllBoss();
+        $boss = $this->bossDAO->getAllBoss();
         $extension = $this->extensionDAO->getAllExtension();
         return $this->view->render('home', [
            'allboss' => $boss,
@@ -15,7 +15,7 @@ class FrontController extends Controller{
     }
     
     public function boss($bossId){
-        $boss = $this->BossDAO->getOneBoss($bossId);
+        $boss = $this->bossDAO->getOneBoss($bossId);
         $comments = $this->commentDAO->getCommentsFromBoss($bossId);
         return $this->view->render('single', [
             'boss' => $boss,
@@ -30,13 +30,20 @@ class FrontController extends Controller{
             'raids' => $raid
         ]);
     }
-    
+    public function raid($raidId){
+        $raid = $this->raidDAO->getOneraid($raidId);
+        $boss = $this->bossDAO->getBossFromRaid($raidId);
+        return $this->view->render('raid', [
+            'raids' => $raid,
+            'allboss' => $boss
+        ]);
+    }
     public function addComment(Parameter $post, $bossId)
     {
         if($post->get('submit')) {
             $errors = $this->validation->validate($post, 'Comment');
             if(!$errors) {
-                $this->commentDAO->addComment($post, $bossId);
+                $this->commentDAO->addComment($post, $bossId, $this->session->get('id'));
                 $this->session->set('add_comment', 'Le nouveau commentaire a bien été ajouté');
                 header('Location: ../public/index.php');
             }

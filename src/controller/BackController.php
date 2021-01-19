@@ -26,28 +26,34 @@ class BackController extends Controller{
     public function administration(){
         if($this->checkAdmin()) {
             $extension = $this->extensionDAO->getAllExtension();
+            $raid = $this->raidDAO->getRaidsFromExtension($extension[1]->getId());
+            $boss = $this->bossDAO->getBossFromRaid($raid[1]->getId());
             $comments = $this->commentDAO->getFlagComments();
             $users = $this->userDAO->getUsers();
 
             return $this->view->render('administration', [
                 'allextension' => $extension,
+                'raids' => $raid,
+                'boss' => $boss,
                 'comments' => $comments,
                 'users' => $users
             ]);   
         }
     }
-    public function addboss(Parameter $post)
+    public function addboss(Parameter $post, $raidId)
     {
         if($post->get('submit')) {
             $errors = $this->validation->validate($post, 'boss');
             if(!$errors) {
-                $this->bossDAO->addboss($post, $this->session->get('id'));
+                $this->bossDAO->addboss($post, $this->session->get('id'),$raidId);
+                $raid = $this->raidDAO->getOneraid($raidId);
                 $this->session->set('add_boss', 'Le nouvel boss a bien été ajouté');
                 header('Location: ../public/index.php?route=administration');
             }
             return $this->view->render('add_boss', [
                 'post' => $post,
-                'errors' => $errors
+                'errors' => $errors,
+                'raids' => $raid
             ]);
         }
         return $this->view->render('add_boss');
@@ -65,6 +71,19 @@ class BackController extends Controller{
         }
         return $this->view->render('add_extension');
     }
+    public function AddRaid(Parameter $post, $bossId)
+    {
+        if($post->get('submit')) {
+
+            $this->raidDAO->addraid($post, $this->session->get('id'));
+            $this->session->set('add_raid', 'La nouvel extension a bien été ajouté');
+            header('Location: ../public/index.php?route=extension');
+        return $this->view->render('add_raid', [
+            'post' => $post,
+        ]);
+    }
+    return $this->view->render('add_extension');
+    }
     public function editboss(Parameter $post, $bossId)
     {
         $boss = $this->bossDAO->getOneboss($bossId);
@@ -77,7 +96,7 @@ class BackController extends Controller{
             }
             return $this->view->render('edit_boss', [
                 'post' => $post,
-                'errors' => $errors
+                'errors' => $errors,
             ]);
 
         }

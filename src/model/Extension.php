@@ -14,11 +14,6 @@ class Extension{
     private $title;
 
     /**
-     * @var string
-     */
-    private $author;
-
-    /**
      * @var \DateTime
      */
     private $createdAt;
@@ -49,20 +44,6 @@ class Extension{
      */
     public function setTitle($title){
         $this->title = $title;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAuthor(){
-        return $this->author;
-    }
-
-    /**
-     * @param string $author
-     */
-    public function setAuthor($author){
-        $this->author = $author;
     }
 
     /**

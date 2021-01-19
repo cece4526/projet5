@@ -1,4 +1,4 @@
-<?php $this->title = "Nouveau boss"; ?>
+<?php $this->title = "addBoss"; ?>
 <script>
       tinymce.init({selector: '#contentAddArtticle',
         plugins: [

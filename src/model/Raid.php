@@ -14,11 +14,6 @@ class Raid{
     private $title;
 
     /**
-     * @var string
-     */
-    private $author;
-
-    /**
      * @var \DateTime
      */
     private $createdAt;
@@ -50,21 +45,6 @@ class Raid{
     public function setTitle($title){
         $this->title = $title;
     }
-
-    /**
-     * @return string
-     */
-    public function getAuthor(){
-        return $this->author;
-    }
-
-    /**
-     * @param string $author
-     */
-    public function setAuthor($author){
-        $this->author = $author;
-    }
-
     /**
      * @return \DateTime
      */
@@ -78,3 +58,4 @@ class Raid{
     public function setCreatedAt($createdAt){
         $this->createdAt = $createdAt;
     }
+}
