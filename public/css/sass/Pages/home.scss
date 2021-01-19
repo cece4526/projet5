@@ -1,0 +1,29 @@
+#menu_dir{
+    justify-content: flex-end;
+}
+.menu_dir{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card_home_center{
+    align-items: center;
+}
+.card_home{
+    &_width{
+        width: 70%;
+        @media screen and (max-width: 1024px){
+            width: 100%;
+        } 
+    }
+    &_center{
+        align-items: center;
+    }
+    &_border{
+        margin: auto;
+        padding: 10px;
+        border:1px solid #ccc;
+	    box-shadow:1px 1px 3px #999;
+    }
+}
+

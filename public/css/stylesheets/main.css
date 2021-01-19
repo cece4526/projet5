@@ -1,0 +1,186 @@
+/* line 1, ../sass/Base/base.scss */
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  justify-content: center;
+}
+
+/* line 8, ../sass/Base/base.scss */
+html {
+  margin: auto;
+  display: flex;
+}
+
+/* line 12, ../sass/Base/base.scss */
+body {
+  width: 90%;
+}
+
+/* line 15, ../sass/Base/base.scss */
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 20, ../sass/Base/base.scss */
+.margin {
+  margin: 5px;
+}
+
+/* line 2, ../sass/Layout/layout.scss */
+header {
+  background-color: #34626c;
+  color: beige;
+}
+/* line 5, ../sass/Layout/layout.scss */
+header h1, header h2 {
+  text-align: center;
+}
+
+/* line 10, ../sass/Layout/layout.scss */
+#color_body {
+  background-color: #cfd3ce;
+}
+/* line 13, ../sass/Layout/layout.scss */
+.color_boss {
+  width: 100%;
+}
+
+/* line 20, ../sass/Layout/layout.scss */
+.card_home_color {
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+
+/* line 25, ../sass/Layout/layout.scss */
+.actions {
+  padding: 10px;
+}
+
+/* line 28, ../sass/Layout/layout.scss */
+.com_color {
+  background-color: white;
+}
+
+@media screen and (max-width: 800px) {
+  /* line 31, ../sass/Layout/layout.scss */
+  iframe {
+    display: none;
+  }
+}
+
+/* line 1, ../sass/Pages/home.scss */
+#menu_dir {
+  justify-content: flex-end;
+}
+
+/* line 4, ../sass/Pages/home.scss */
+.menu_dir {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* line 9, ../sass/Pages/home.scss */
+.card_home_center {
+  align-items: center;
+}
+
+/* line 13, ../sass/Pages/home.scss */
+.card_home_width {
+  width: 70%;
+}
+@media screen and (max-width: 1024px) {
+  /* line 13, ../sass/Pages/home.scss */
+  .card_home_width {
+    width: 100%;
+  }
+}
+/* line 19, ../sass/Pages/home.scss */
+.card_home_center {
+  align-items: center;
+}
+/* line 22, ../sass/Pages/home.scss */
+.card_home_border {
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 3px #999;
+}
+
+/* line 1, ../sass/Components/components.scss */
+td {
+  padding: 0.4em;
+  border: 1px solid black;
+}
+/* line 4, ../sass/Components/components.scss */
+td[scope="col"] {
+  background-color: white;
+}
+
+/* line 8, ../sass/Components/components.scss */
+th[scope="row"] {
+  background-color: #c6b497;
+}
+
+/* line 11, ../sass/Components/components.scss */
+#button_menu {
+  border: 1px solid #839b97;
+  background-color: #839b97;
+}
+/* line 14, ../sass/Components/components.scss */
+#button_menu span {
+  display: block;
+}
+
+/* line 18, ../sass/Components/components.scss */
+.button {
+  padding: 0.1em;
+}
+
+/* line 21, ../sass/Components/components.scss */
+.bouton4 {
+  text-align: center;
+  padding: 6px 0 6px 0;
+  font: bold 13px Arial;
+  background: #f5f5f5;
+  color: #555;
+  border-radius: 2px;
+  width: 100px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 3px #999;
+}
+
+/* line 32, ../sass/Components/components.scss */
+.bouton5 {
+  text-align: center;
+  padding: 6px 0 6px 0;
+  font: bold 13px Arial;
+  background: #f5f5f5;
+  color: #555;
+  border-radius: 2px;
+  width: 175px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 3px #999;
+}
+
+/* line 43, ../sass/Components/components.scss */
+.message {
+  display: flex;
+  justify-content: center;
+  height: 40px;
+}
+/* line 47, ../sass/Components/components.scss */
+.message_text {
+  background: white;
+}
+
+/* line 1, ../sass/Pages/profil.scss */
+.content_center {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}

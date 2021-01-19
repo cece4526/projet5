@@ -1,0 +1,35 @@
+
+header{
+    background-color: $header;
+    color: beige;
+    h1,h2{
+        text-align: center;
+    }
+}
+#color{
+    &_body{
+        background-color: $body;
+    }
+    &_boss{
+        background-color: $body;
+        border: none;
+        width: 100%;
+    }
+}
+.card_home{
+    &_color{
+        border-radius: 5px;
+        background-color: rgb(245, 245, 245);
+    }
+}
+.actions{
+    padding: 10px;
+}
+.com_color{
+    background-color: white;
+}
+iframe{
+    @media screen and (max-width: 800px){
+        display: none;
+    }
+}

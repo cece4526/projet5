@@ -1,0 +1,37 @@
+/* line 1, ../../sass/Pages/home.scss */
+#menu_dir {
+  justify-content: flex-end;
+}
+
+/* line 4, ../../sass/Pages/home.scss */
+.menu_dir {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* line 9, ../../sass/Pages/home.scss */
+.card_home_center {
+  align-items: center;
+}
+
+/* line 13, ../../sass/Pages/home.scss */
+.card_home_width {
+  width: 70%;
+}
+@media screen and (max-width: 1024px) {
+  /* line 13, ../../sass/Pages/home.scss */
+  .card_home_width {
+    width: 100%;
+  }
+}
+/* line 19, ../../sass/Pages/home.scss */
+.card_home_center {
+  align-items: center;
+}
+/* line 22, ../../sass/Pages/home.scss */
+.card_home_border {
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 3px #999;
+}

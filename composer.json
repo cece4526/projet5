@@ -1,0 +1,14 @@
+{
+    "autoload": {
+        "psr-4": {"App\\config\\":"config/","App\\src\\": "src/"}
+    },
+    "name": "cedric/p05_code_source",
+    "authors": [
+        {
+            "name": "Cédric Dupré",
+            "email": "cece4526@hotmail.fr"
+        }
+    ],
+    "require": {}
+}
+

@@ -1,0 +1,50 @@
+td{
+    padding: 0.4em;
+    border: 1px solid black;
+    &[scope="col"]{
+        background-color: white;
+    }
+}
+th[scope="row"]{
+        background-color: $tdColor;
+}
+#button_menu{
+    border: 1px solid $button;
+    background-color: $button;
+    span{
+        display: block;
+    }
+}
+.button{
+    padding: 0.1em;
+}
+#bouton4 {
+    text-align: center;
+	padding:6px 0 6px 0;
+	font:bold 13px Arial;
+	background:#f5f5f5;
+	color:#555;
+	border-radius:2px;
+	width:100px;
+	border:1px solid #ccc;
+	box-shadow:1px 1px 3px #999;
+}
+#bouton5 {
+    text-align: center;
+	padding:6px 0 6px 0;
+	font:bold 13px Arial;
+	background:#f5f5f5;
+	color:#555;
+	border-radius:2px;
+	width:175px;
+	border:1px solid #ccc;
+	box-shadow:1px 1px 3px #999;
+}
+.message{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    &_text{
+        background: white;
+    }
+}
