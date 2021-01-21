@@ -43,6 +43,9 @@ class Router{
                 elseif($route === 'deleteBoss'){
                     $this->backController->deleteBoss($this->request->getGet()->get('bossId'));
                 }
+                elseif($route === 'deleteExtension'){
+                    $this->backController->deleteExtension($this->request->getGet()->get('extensionId'));
+                }
                 elseif($route === 'addComment'){
                     $this->frontController->addComment($this->request->getPost(), $this->request->getGet()->get('bossId'));
                 }

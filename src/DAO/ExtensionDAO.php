@@ -36,4 +36,8 @@ class ExtensionDAO extends DAO {
         $sql = 'INSERT INTO extension (title, createdAt) VALUES (?, NOW())';
         $this->createQuery($sql, [$post->get('title')]);
     }
+    public function deleteExtension($extensionId){
+        $sql = 'DELETE FROM extension WHERE id = ?';
+        $this->createQuery($sql, [$extensionId]);
+    }
 }

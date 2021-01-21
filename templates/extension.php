@@ -9,5 +9,8 @@
         <p>crée le <?= htmlspecialchars($raid->getCreatedAt());?></p>
 <?php } ?>
 <h3>Ajouté un Raid</h3>
-<?php include('Form_raid.php'); ?> 
+<?php include('Form_raid.php'); 
+?> 
+<h3>Supprimé l'extension</h3>
+<a href="../public/index.php?route=deleteExtension&extensionId=<?=htmlspecialchars($this->request->getGet()->get('extensionId'));?>">supprimé</a>
 

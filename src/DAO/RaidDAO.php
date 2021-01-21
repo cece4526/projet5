@@ -31,11 +31,9 @@ class RaidDAO extends DAO {
         $raid = $result->fetch();
         $result->closeCursor();
         return $this->buildObject($raid);
-        var_dump($raid);
-        die;
     }
-    public function addraid(Parameter $post, $userId){
+    public function addraid(Parameter $post, $extensionId){
         $sql = 'INSERT INTO raid (title, createdAt, extension_id) VALUES (?, NOW(), ?)';
-        $this->createQuery($sql, [$post->get('title'), $userId]);
+        $this->createQuery($sql, [$post->get('title'), $extensionId]);
     }
 }

@@ -8,8 +8,8 @@
 </article>
 <?php if($this->session->get('role') === 'admin') { ?>
     <div class='actions'>
-        <a class="bouton4" href="../public/index.php?route=editboss&bossId=<?= $boss->getId(); ?>">Modifier</a>
-        <a class="bouton4" href="../public/index.php?route=deleteboss&bossId=<?= $boss->getId(); ?>">Supprimer</a>
+        <a class="bouton4" href="../public/index.php?route=editBoss&bossId=<?= $boss->getId(); ?>">Modifier</a>
+        <a class="bouton4" href="../public/index.php?route=deleteBoss&bossId=<?= $boss->getId(); ?>">Supprimer</a>
     </div>
 <?php } ?>
 

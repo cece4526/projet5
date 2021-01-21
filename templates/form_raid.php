@@ -1,5 +1,5 @@
 <?php
-$route = isset($post) && $post->get('id') ? 'editRaid' : 'addRaid';
+$route = isset($post) && $post->get('id') ? 'editRaid' : 'addRaid&extensionId='.$extensions->getid();
 $submit = $route === 'addRaid' ? 'Ajouter' : 'Mettre à jour';
 ?>
 

@@ -4,6 +4,7 @@
     <div class="content_center">
         <h3>Administration</h3>
         <a class="margin bouton4" href="../public/index.php">Accueil</a>
+        <a href="../public/index.php?route=addExtension">ajouté un nouvel extension</a>
         <div class="message">
             <p class="message_text">
                 <?=$this->session->show('add_boss');?>
