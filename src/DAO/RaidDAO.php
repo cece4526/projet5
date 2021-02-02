@@ -7,18 +7,23 @@ class RaidDAO extends DAO {
     
     private function buildObject ($row){
         $raid = new Raid();
-        $raid->setId($row['id']);
-        $raid->setTitle($row['title']);
-        $raid->setCreatedAt($row['createdAt']);
+        $raid->setId($row['raid_id']);
+        $raid->setTitle($row['raid_title']);
+        $raid->setCreatedAt($row['raid_createdAt']);
+        $raid->setExtensionId($row['raid_extension_id']);
         return $raid;
     }
-
+    public function getRaidObject(array $row)
+    {
+        $raidModel = $this->buildObject($row);
+        return $raidModel;
+    }
     public function getRaidsFromExtension($extensionId){
-        $sql = 'SELECT id, title, createdAt FROM raid WHERE extension_id = ? ORDER BY createdAt DESC';
+        $sql = 'SELECT raid_id, raid_title, raid_createdAt, raid_extension_id FROM raid WHERE raid_extension_id = ? ORDER BY raid_createdAt DESC';
         $result = $this->createQuery($sql, [$extensionId]);
         $allRaids = [];
         foreach($result as $row){
-            $raidId = $row['id'];
+            $raidId = $row['raid_id'];
             $allRaids[$raidId] = $this->buildObject($row);
         }
         $result->closeCursor();
@@ -26,14 +31,14 @@ class RaidDAO extends DAO {
     }
 
     public function getOneraid($raidId){
-        $sql = 'SELECT raid.id, raid.title, raid.createdAt FROM raid WHERE raid.id = ?';
+        $sql = 'SELECT raid.raid_id, raid.raid_title, raid.raid_createdAt,raid.raid_extension_id FROM raid WHERE raid.raid_id = ?';
         $result = $this->createQuery($sql, [$raidId]);
         $raid = $result->fetch();
         $result->closeCursor();
         return $this->buildObject($raid);
     }
     public function addraid(Parameter $post, $extensionId){
-        $sql = 'INSERT INTO raid (title, createdAt, extension_id) VALUES (?, NOW(), ?)';
-        $this->createQuery($sql, [$post->get('title'), $extensionId]);
+        $sql = 'INSERT INTO raid (raid_title, raid_createdAt, raid_extension_id) VALUES (?, NOW(), ?)';
+        $this->createQuery($sql, [$post->get('raid_title'), $extensionId]);
     }
 }

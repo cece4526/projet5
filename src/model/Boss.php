@@ -29,6 +29,11 @@ class Boss{
     private $createdAt;
 
     /**
+     * @var int
+     */
+    private $raidId;
+
+    /**
      * @return int
      */
     public function getId(){
@@ -96,5 +101,18 @@ class Boss{
      */
     public function setCreatedAt($createdAt){
         $this->createdAt = $createdAt;
+    }
+    /**
+     * @return int
+     */
+    public function getRAidId(){
+        return $this->raidId;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setRaidId($raidId){
+        $this->raidId = $raidId;
     }
 }

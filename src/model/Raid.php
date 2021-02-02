@@ -6,7 +6,7 @@ class Raid{
     /**
      * @var int
      */
-    private $id;
+    private $raidId;
 
     /**
      * @var string
@@ -19,17 +19,25 @@ class Raid{
     private $createdAt;
 
     /**
+     * @var int
+     */
+    private $extensionId;
+    /**
+     * array <Boss>
+     */
+    private $allBoss = [];
+    /**
      * @return int
      */
     public function getId(){
-        return $this->id;
+        return $this->raidId;
     }
 
     /**
-     * @param int $id
+     * @param int $raidId
      */
-    public function setId($id){
-        $this->id = $id;
+    public function setId($raidId){
+        $this->raidId = $raidId;
     }
 
     /**
@@ -57,5 +65,28 @@ class Raid{
      */
     public function setCreatedAt($createdAt){
         $this->createdAt = $createdAt;
+    }
+    public function getExtensionId(){
+        return $this->extensionId;
+    }
+
+    /**
+     * @param int $extensionId
+     */
+    public function setExtensionId($extensionId){
+        $this->extensionId = $extensionId;
+    }
+    public function getAllBoss(){
+        return $this->allBoss;
+    }
+    /**
+     * @param array <boss>
+     */
+    public function setAllBoss(array $allBoss){
+        $this->allBoss = $allBoss;
+    }
+    public function addAllBoss(Boss $boss)
+    {
+       $this->allBoss[] = $boss;
     }
 }

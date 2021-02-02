@@ -18,27 +18,29 @@
         </div>
         <h4>Extensions</h4>
         <?php 
-            foreach($allextension as $extension)
+            foreach($allExtension as $extension)
             {
             ?>
                 <a href="../public/index.php?route=extension&extensionId=<?=htmlspecialchars($extension->getId());?>"><?=htmlspecialchars($extension->getTitle());?></a>
                 <table class="table-responsive">
                 <?php 
-                foreach ($raids as $raid){
-                ?>
-                    <tr>
-                        <th scope="row"><?= htmlspecialchars($raid->getTitle());?></th>                
-                    </tr>
-                    <?php } ?>
-                <?php
-                foreach ($boss as $boss){
-                ?>
-                    <tr>
-                        <td scope="col"><a href="../public/index.php?route=boss&bossId=<?=htmlspecialchars($boss->getId());?>"><?= htmlspecialchars($boss->getTitle());?></a></td>
-                    </tr>
-                    <?php } ?>
+            
+                foreach ($extension->getRaids() as $raid){
+                        ?>
+                        <tr>
+                            <th scope="row"><?= htmlspecialchars($raid->getTitle());?></th>                
+                        </tr>
+                    <?php 
+                    foreach ($raid->getAllBoss() as $boss){
+                        ?>
+                            <tr>
+                                <td scope="col"><a href="../public/index.php?route=boss&bossId=<?=htmlspecialchars($boss->getId());?>"><?= htmlspecialchars($boss->getTitle());?></a></td>
+                            </tr>
+                        <?php 
+                    }
+                }    ?>
                 </table>
-            <?php } ?>
+            <?php }  ?>
         <h2>Commentaires signalés</h2>
         <table class="table-responsive">
             <tr>

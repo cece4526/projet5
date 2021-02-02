@@ -38,20 +38,12 @@ class BackController extends Controller{
 
     public function administration(){
         if($this->checkAdmin()) {
-            $extensions = $this->extensionDAO->getAllExtension();
-            foreach($extensions as $extension){
-                $raids = $this->raidDAO->getRaidsFromExtension($extension->getId());
-                foreach($raids as $raid){
-                    $boss = $this->bossDAO->getBossFromRaid($raid->getId());
-                }
-            }
+            $extensions = $this->extensionDAO->getAllRelations();
             $comments = $this->commentDAO->getFlagComments();
             $users = $this->userDAO->getUsers();
 
             return $this->view->render('administration', [
-                'allextension' => $extensions,
-                'raids' => $raids,
-                'boss' => $boss,
+                'allExtension' => $extensions,
                 'comments' => $comments,
                 'users' => $users
             ]);   

@@ -19,6 +19,15 @@ class Extension{
     private $createdAt;
 
     /**
+     * @var array <Raid>
+     */
+    private $raids = [];
+
+    /**
+     * @var array <boss>
+     */
+    private $boss = [];
+    /**
      * @return int
      */
     public function getId(){
@@ -58,5 +67,24 @@ class Extension{
      */
     public function setCreatedAt($createdAt){
         $this->createdAt = $createdAt;
+    }
+    /**
+     * @return array
+     */
+    public function getRaids(){
+        return $this->raids;
+    }
+    /**
+     * @param array 
+     */
+    public function setRaids(array $raids){
+        $this->raids = $raids;
+    }
+    /**
+     * 
+    */
+    public function addRaids(Raid $raid)
+    {
+       $this->raids[] = $raid;
     }
 }

@@ -7,15 +7,21 @@ class BossDAO extends DAO{
 
     private function buildObject ($row){
         $boss = new Boss();
-        $boss->setId($row['id']);
-        $boss->setTitle($row['title']);
-        $boss->setContent($row['content']);
+        $boss->setId($row['boss_id']);
+        $boss->setTitle($row['boss_title']);
+        $boss->setContent($row['boss_content']);
         $boss->setAuthor($row['pseudo']);
-        $boss->setCreatedAt($row['createdAt']);
+        $boss->setCreatedAt($row['boss_createdAt']);
+        $boss->setRaidId($row['boss_raid_id']);
         return $boss;
     }
+    public function getBossObject(array $row)
+    {
+        $bossModel = $this->buildObject($row);
+        return $bossModel;
+    }
     public function getAllBoss(){
-        $sql = 'SELECT boss.id, boss.title, boss.content, user.pseudo, boss.createdAt FROM boss INNER JOIN user ON boss.user_id = user.id ORDER BY boss.id DESC';
+        $sql = 'SELECT boss.boss_id, boss.boss_title, boss.boss_content, user.pseudo, boss.boss_createdAt, boss.boss_raid_id FROM boss INNER JOIN user ON boss.boss_user_id = user.id ORDER BY boss.boss_id DESC';
         $result = $this->createQuery($sql);
         $boss = [];
         foreach ($result as $row){
@@ -27,7 +33,7 @@ class BossDAO extends DAO{
     }
 
     public function getOneboss($bossId){
-        $sql = 'SELECT boss.id, boss.title, boss.content, user.pseudo, boss.createdAt FROM boss INNER JOIN user ON boss.user_id = user.id WHERE boss.id = ?';
+        $sql = 'SELECT boss.boss_id, boss.boss_title, boss.boss_content, user.pseudo, boss.boss_createdAt,boss.boss_raid_id FROM boss INNER JOIN user ON boss.boss_user_id = user.id WHERE boss.boss_id = ?';
         $result = $this->createQuery($sql, [$bossId]);
         $boss = $result->fetch();
         $result->closeCursor();
@@ -35,7 +41,7 @@ class BossDAO extends DAO{
     }
 
     public function addBoss(Parameter $post, $userId, $raidId){
-        $sql = 'INSERT INTO boss (title, content, createdAt, user_id, raid_id) VALUES (?, ?, NOW(), ?, ?)';
+        $sql = 'INSERT INTO boss (boss_title, boss_content, boss_createdAt, user_id, boss_raid_id) VALUES (?, ?, NOW(), ?, ?)';
         $this->createQuery($sql, [$post->get('title'), $post->get('content'), $userId, $raidId]);
     }
     public function editBoss(Parameter $post, $bossId, $userId){
@@ -54,7 +60,7 @@ class BossDAO extends DAO{
         $this->createQuery($sql, [$bossId]);
     }
     public function getBossFromRaid($raidId){
-        $sql = 'SELECT boss.id, boss.title,boss.content, boss.createdAt, user.pseudo FROM boss INNER JOIN user ON boss.user_id = user.id WHERE raid_id = ? ORDER BY createdAt DESC';
+        $sql = 'SELECT boss.boss_id, boss.boss_title,boss.boss_content, boss.boss_createdAt, user.pseudo, raid_id FROM boss INNER JOIN user ON boss.boss_user_id = user.id WHERE raid_id = ? ORDER BY createdAt DESC';
         $result = $this->createQuery($sql, [$raidId]);
         $allBoss = [];
         foreach($result as $row){
