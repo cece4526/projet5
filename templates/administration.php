@@ -3,8 +3,8 @@
 <div class="center">
     <div class="content_center">
         <h3>Administration</h3>
-        <a class="margin bouton4" href="../public/index.php">Accueil</a>
-        <a href="../public/index.php?route=addExtension">ajouté un nouvel extension</a>
+        <a class="margin btn btn-primary" href="../public/index.php">Accueil</a>
+        <a class="btn btn-primary" href="../public/index.php?route=addExtension">ajouté un nouvel extension</a>
         <div class="message">
             <p class="message_text">
                 <?=$this->session->show('add_boss');?>
@@ -21,26 +21,33 @@
             foreach($allExtension as $extension)
             {
             ?>
-                <a href="../public/index.php?route=extension&extensionId=<?=htmlspecialchars($extension->getId());?>"><?=htmlspecialchars($extension->getTitle());?></a>
-                <table class="table-responsive">
-                <?php 
-            
-                foreach ($extension->getRaids() as $raid){
-                        ?>
-                        <tr>
-                            <th scope="row"><?= htmlspecialchars($raid->getTitle());?></th>                
-                        </tr>
-                    <?php 
-                    foreach ($raid->getAllBoss() as $boss){
-                        ?>
-                            <tr>
-                                <td scope="col"><a href="../public/index.php?route=boss&bossId=<?=htmlspecialchars($boss->getId());?>"><?= htmlspecialchars($boss->getTitle());?></a></td>
-                            </tr>
+                <a class="btn btn-primary" href="../public/index.php?route=extension&extensionId=<?=htmlspecialchars($extension->getId());?>"><?=htmlspecialchars($extension->getTitle());?></a>
+                <div class="container tab">
+                    
                         <?php 
-                    }
-                }    ?>
-                </table>
+                        foreach ($extension->getRaids() as $raid){
+                            ?>
+                            <table class="table-responsive">
+                            <tr>
+                                <th scope="rowRaid"><a href="../public/index.php?route=raid&raidId=<?=htmlspecialchars($raid->getId());?>"><?= htmlspecialchars($raid->getTitle());?></th>                
+                            <?php 
+                            foreach ($raid->getAllBoss() as $boss){
+                                ?>
+                                <tr>
+                                    <td scope="col"><a href="../public/index.php?route=boss&bossId=<?=htmlspecialchars($boss->getId());?>"><?= htmlspecialchars($boss->getTitle());?></a></td>
+                                </tr>
+                                <?php 
+                            }?>
+                        </tr>
+                        </table>     
+                        <?php 
+                        }?>
+                        </tr>
+                    </table>
+                </div>
             <?php }  ?>
+
+           
         <h2>Commentaires signalés</h2>
         <table class="table-responsive">
             <tr>
@@ -97,6 +104,6 @@
             }
             ?>
         </table>    
-        <a class="margin bouton4" href="../public/index.php">Accueil</a>
+        <a class="margin btn btn-primary" href="../public/index.php">Accueil</a>
     </div>
 </div>

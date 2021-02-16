@@ -14,7 +14,7 @@ class ExtensionDAO extends DAO {
         return $extension;
     }
     public function getAllExtension(){
-        $sql = 'SELECT extension.id, extension.title, extension.createdAt FROM extension ORDER BY extension.id DESC';
+        $sql = 'SELECT extension.id, extension.title, extension.createdAt FROM extension ORDER BY extension.id ';
         $result = $this->createQuery($sql);
         $extension = [];
         foreach ($result as $row){
@@ -43,18 +43,29 @@ class ExtensionDAO extends DAO {
     }
     public function getAllRelations()
     {
-        $sql = 'SELECT extension.id, extension.title, extension.createdAt, boss.boss_id, boss.boss_title,boss.boss_content, boss.boss_createdAt, boss.boss_raid_id, user.pseudo, raid_id,raid.raid_id, raid.raid_title, raid.raid_createdAt,raid.raid_extension_id FROM extension LEFT JOIN raid ON extension.id = raid.raid_extension_id LEFT JOIN boss ON raid.raid_id = boss.boss_raid_id INNER JOIN user ON boss.boss_user_id = user.id';
-        $results = $this->createQuery($sql);
+        $sql = 'SELECT extension.id, extension.title, extension.createdAt, 
+        boss.boss_id, boss.boss_title,boss.boss_content, boss.boss_createdAt, boss.boss_raid_id, 
+        user.pseudo,raid.raid_id, raid.raid_title, 
+        raid.raid_createdAt,raid.raid_extension_id 
+        FROM extension 
+        LEFT JOIN raid ON extension.id = raid.raid_extension_id 
+        LEFT JOIN boss ON raid.raid_id = boss.boss_raid_id 
+        LEFT JOIN user ON boss.boss_user_id = user.id 
+        ORDER BY boss.boss_id' ;
+        $results = $this->createQuery($sql)->fetchAll(\PDO::FETCH_ASSOC);
         $allExtensions = [];
-        foreach ($results as $row){
+        //var_dump($results);
+        foreach ($results as $row){  
             $extensionId = $row['id'];
-            $allExtensions[$extensionId] = $this->buildObject($row);      
+            if (array_key_exists($extensionId, $allExtensions) === false){
+                $allExtensions[$extensionId] = $this->buildObject($row);  
+            }    
             $raidDAO = new RaidDAO;
             $raidModel = $raidDAO->getRaidObject($row);
             $allExtensions[$extensionId]->addRaids($raidModel);
             $bossDAO = new BossDAO;
             $bossModel = $bossDAO->getBossObject($row);
-            $raidModel->addAllBoss($bossModel);
+            $allExtensions[$extensionId]->getRaids()[$raidModel->getId()]->addAllBoss($bossModel);
         }
         return $allExtensions;
     }

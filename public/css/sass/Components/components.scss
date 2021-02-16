@@ -1,12 +1,21 @@
 td{
     padding: 0.4em;
     border: 1px solid black;
+    text-align: center;
     &[scope="col"]{
         background-color: white;
     }
 }
 th[scope="row"]{
-        background-color: $tdColor;
+    background-color: $titleColor;
+    padding: 2px;
+    text-align: center;
+}
+th[scope="rowRaid"]{
+        background-color: $titleColor;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
 }
 #button_menu{
     border: 1px solid $button;
@@ -18,7 +27,7 @@ th[scope="row"]{
 .button{
     padding: 0.1em;
 }
-#bouton4 {
+.bouton4 {
     text-align: center;
 	padding:6px 0 6px 0;
 	font:bold 13px Arial;
@@ -48,3 +57,62 @@ th[scope="row"]{
         background: white;
     }
 }
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Avenir, sans-serif;
+}
+
+li {
+    list-style:none !important;
+    color:#FFF;
+    padding:10px;
+    font-size:20px;
+    text-decoration:none;
+    }
+     
+nav ul {
+    background-color:#A7FF83;
+    padding:0;
+    margin:0;
+    }
+     
+nav ul li {
+    list-style: none;
+    line-height:15px;
+    float:left;
+    background-color:#086972;
+    }
+     
+nav ul li a {
+    color:#FFF;
+    padding:6px;
+    font-size:20px;
+    text-decoration:none;
+    &:hover{
+        color: #A7FF83;
+    }
+    }
+nav ul li ul { display:none; } /* Rend le menu déroulant caché par défaut */
+     
+nav ul li:hover ul { /* Affiche la dropNav au survol de la souris avec la class .drop */
+    z-index:99999;
+    display:list-item !important;
+    position:absolute;
+    margin-top:5px;
+    margin-left:-10px;
+    }
+     
+nav ul li:hover ul li {
+    float:none;
+    }
+li > a:after { content: "\f201"; } /* Changer ce afin de changer le symbole du menu déroulant */
+ 
+li > a:only-child:after { content: ''; }
+
+.tab{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+

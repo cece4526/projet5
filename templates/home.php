@@ -10,37 +10,30 @@
         <?= $this->session->show('delete_comment'); ?>
     </p>
 </div>
-<?php
-if ($this->session->get('pseudo')) {?>
-    <nav id="menu_dir" class="col navbar navbar-expand-lg">
-        <button id="button_menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-            <span class="button">Menu</span>
-        </button>
-        <div id="navbarContent" class="collapse navbar-collapse menu_dir">
-            <ul class="navbar-nav">
-                <li class="nav-item active"><a class=" nav-link bouton4" href="../public/index.php?route=logout">Déconnexion</a></li>
-                <li class="nav-item active"><a class=" nav-link bouton4" href="../public/index.php?route=profile">Profil</a></li>
-                <?php if($this->session->get('role') === 'admin') { ?>
-                <li class="nav-item active"><a class=" nav-link bouton4" href="../public/index.php?route=administration">Administration</a></li>
-            </ul>
+<?php include('menu.php'); ?>
+<div id="container_caroussel">
+    <div class="carousel" style="display: none;">
+       <div class="carousel__panorama">
+            <div class="item"></div>
+            <div class="item"></div>
         </div>
-        <?php } ?>
-    </nav>
-    <?php
-} 
-else {
-    ?>
-    <nav id="menu_dir" class="col navbar navbar-expand-lg">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-            <span class="button">Menu</span>
-        </button>
-        <div id="navbarContent" class="collapse navbar-collapse menu_dir">
-            <ul class="navbar-nav">
-                <li class="nav-item active"><a class=" nav-link bouton4" href="../public/index.php?route=register">Inscription</a></li>
-                <li class="nav-item active"><a class=" nav-link bouton4" href="../public/index.php?route=login">Connexion</a></li>
-            </ul>
+    </div>
+    <div id="carousel1">
+        <div class="item">
+            <div class="item__image">
+                <img src="../public/images/shadowland.jpg" alt="">
+                <figcaption>
+                    <a href="https://www.mamytwink.com/actualite/correctifs-du-6-fevrier-2021-bug-pour-les-outils-de-niya-bardanes">
+                    Mise à Jour et Correctifs</a
+                ></figcaption>
+            </div>
         </div>
-    </nav>
-    <?php
-}
-?>
+        <div class="item">
+            <div class="item__image">
+                <img src="../public/images/nathria.jpg" alt="">
+                <figcaption><a href="../public/index.php?route=raid&raidId=1">Chateau de Nathria</a></figcaption>
+            </div>               
+        </div>
+    </div>
+</div>
+<script type="module" src="js/main.js"></script>

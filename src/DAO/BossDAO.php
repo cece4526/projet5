@@ -25,7 +25,7 @@ class BossDAO extends DAO{
         $result = $this->createQuery($sql);
         $boss = [];
         foreach ($result as $row){
-            $bossId = $row['id'];
+            $bossId = $row['boss_id'];
             $boss[$bossId] = $this->buildObject($row);
         }
         $result->closeCursor();
@@ -41,11 +41,11 @@ class BossDAO extends DAO{
     }
 
     public function addBoss(Parameter $post, $userId, $raidId){
-        $sql = 'INSERT INTO boss (boss_title, boss_content, boss_createdAt, user_id, boss_raid_id) VALUES (?, ?, NOW(), ?, ?)';
+        $sql = 'INSERT INTO boss (boss_title, boss_content, boss_createdAt, boss_user_id, boss_raid_id) VALUES (?, ?, NOW(), ?, ?)';
         $this->createQuery($sql, [$post->get('title'), $post->get('content'), $userId, $raidId]);
     }
     public function editBoss(Parameter $post, $bossId, $userId){
-        $sql = 'UPDATE boss SET title=:title, content=:content, user_id=:user_id WHERE id=:bossId';
+        $sql = 'UPDATE boss SET boss_title=:title, boss_content=:content, boss_user_id=:user_id WHERE boss_id=:bossId';
         $this->createQuery($sql, [
             'title' => $post->get('title'),
             'content' => $post->get('content'),
@@ -56,15 +56,15 @@ class BossDAO extends DAO{
     public function deleteBoss($bossId){
         $sql = 'DELETE FROM comment WHERE boss_id = ?';
         $this->createQuery($sql, [$bossId]);
-        $sql = 'DELETE FROM boss WHERE id = ?';
+        $sql = 'DELETE FROM boss WHERE boss_id = ?';
         $this->createQuery($sql, [$bossId]);
     }
     public function getBossFromRaid($raidId){
-        $sql = 'SELECT boss.boss_id, boss.boss_title,boss.boss_content, boss.boss_createdAt, user.pseudo, raid_id FROM boss INNER JOIN user ON boss.boss_user_id = user.id WHERE raid_id = ? ORDER BY createdAt DESC';
+        $sql = 'SELECT boss.boss_id, boss.boss_title,boss.boss_content, boss.boss_createdAt, user.pseudo, boss_raid_id FROM boss INNER JOIN user ON boss.boss_user_id = user.id WHERE boss_raid_id = ? ORDER BY createdAt DESC';
         $result = $this->createQuery($sql, [$raidId]);
         $allBoss = [];
         foreach($result as $row){
-            $bossId = $row['id'];
+            $bossId = $row['boss_id'];
             $allBoss[$bossId] = $this->buildObject($row);
         }
         $result->closeCursor();

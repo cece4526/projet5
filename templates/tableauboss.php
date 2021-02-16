@@ -1,5 +1,5 @@
 <h4>boss</h4>
-        <a class="margin bouton4" href="../public/index.php?route=addBoss">Nouvel boss</a>
+        <a class="margin btn btn-primary" href="../public/index.php?route=addBoss">Nouvel boss</a>
         <table class="table-responsive">
             <?php 
             foreach ($raids as $raid){

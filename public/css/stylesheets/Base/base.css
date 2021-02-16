@@ -1,4 +1,18 @@
-/* line 1, ../../sass/Base/base.scss */
+@font-face {
+  font-family: 'fontawesome';
+  src: url("fonts/fontawesome/fontawesome-webfont.eot");
+  src: url("fonts/fontawesome/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/fontawesome/fontawesome-webfont.woff") format("woff"), url("fonts/fontawesome/fontawesome-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'glyphicons';
+  src: url("fonts/glyphicons/glyphicons-halflings-regular.eot");
+  src: url("fonts/glyphicons/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("fonts/glyphicons/glyphicons-halflings-regular.woff") format("woff"), url("fonts/glyphicons/glyphicons-halflings-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 19, ../../sass/Base/base.scss */
 body, html {
   margin: 0;
   padding: 0;
@@ -7,25 +21,25 @@ body, html {
   justify-content: center;
 }
 
-/* line 8, ../../sass/Base/base.scss */
+/* line 26, ../../sass/Base/base.scss */
 html {
   margin: auto;
   display: flex;
 }
 
-/* line 12, ../../sass/Base/base.scss */
+/* line 30, ../../sass/Base/base.scss */
 body {
   width: 90%;
 }
 
-/* line 15, ../../sass/Base/base.scss */
+/* line 33, ../../sass/Base/base.scss */
 #content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* line 20, ../../sass/Base/base.scss */
+/* line 38, ../../sass/Base/base.scss */
 .margin {
   margin: 5px;
 }

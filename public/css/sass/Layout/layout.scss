@@ -1,7 +1,7 @@
 
 header{
     background-color: $header;
-    color: beige;
+    color: $titleColor;
     h1,h2{
         text-align: center;
     }
@@ -21,6 +21,9 @@ header{
         border-radius: 5px;
         background-color: rgb(245, 245, 245);
     }
+}
+.text_align{
+    text-align: center;
 }
 .actions{
     padding: 10px;

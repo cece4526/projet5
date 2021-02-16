@@ -3,7 +3,7 @@
 namespace App\src\constraint;
 use App\config\Parameter;
 
-class bossValidation extends Validation
+class BossValidation extends Validation
 {
     private $errors = [];
     private $constraint;

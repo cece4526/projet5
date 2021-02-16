@@ -58,69 +58,88 @@ class BackController extends Controller{
                     $this->bossDAO->addBoss($post, $this->session->get('id'),$raidId);
                     $raid = $this->raidDAO->getOneraid($raidId);
                     $this->session->set('add_boss', 'Le nouvel boss a bien été ajouté');
-                    header('Location: ../public/index.php?route=administration');
+                    header('Location: ../public/index.php?route=raid&raidId='.$raidId);
                 }
                 return $this->view->render('add_boss', [
                     'post' => $post,
-                    'errors' => $errors,
-                    'raids' => $raid
+                    'errors' => $errors
                 ]);
             }
             return $this->view->render('add_boss');
         }
-        
     }
-    public function addExtension(Parameter $post)
-    {
+    public function addExtension(Parameter $post){
         if($this->checkAdmin()){
             if($post->get('submit')) {
-                $this->extensionDAO->addExtension($post, $this->session->get('id'));
-                $this->session->set('add_extension', 'La nouvel extension a bien été ajouté');
-                header('Location: ../public/index.php?route=administration');
+                $errors = $this->validation->validate($post, 'boss');
+                if(!$errors) {
+                    $this->extensionDAO->addExtension($post, $this->session->get('id'));
+                    $this->session->set('add_extension', 'La nouvel extension a bien été ajouté');
+                    header('Location: ../public/index.php?route=administration');
+                }
+                return $this->view->render('add_extension', [
+                    'post' => $post,
+                    'errors' => $errors
+                ]);              
             }
             return $this->view->render('add_extension');
         }
     }
     public function AddRaid(Parameter $post, $extensionId){
-        if($post->get('submit')) {
-            $this->raidDAO->addraid($post, $extensionId);
-            $this->session->set('add_raid', 'La nouvel extension a bien été ajouté');
-            header('Location: ../public/index.php?route=administration');
+        if($this->checkAdmin()){
+            if($post->get('submit')) {
+                $extension = $this->extensionDAO->getOneExtension($extensionId);
+                $raid = $this->raidDAO->getRaidsFromExtension($extensionId);
+                $errors = $this->validation->validate($post, 'raid');
+                if(!$errors) {
+                    $this->raidDAO->addraid($post, $extensionId);
+                    $this->session->set('add_raid', 'La nouvel extension a bien été ajouté');
+                    header('Location: ../public/index.php?route=administration');
+                }
+                return $this->view->render('extension', [
+                    'post' => $post,
+                    'errors' => $errors,
+                    'extensions' => $extension,
+                    'raids' => $raid
+                ]);              
+                
+            }
+            return $this->view->render('extension');
         }
-        return $this->view->render('add_extension');
     }
-    public function editBoss(Parameter $post, $bossId)
-    {
-        $boss = $this->bossDAO->getOneboss($bossId);
-        if($post->get('submit')) {
-            $errors = $this->validation->validate($post, 'boss');
-            if(!$errors) {
-                $this->bossDAO->editBoss($post, $bossId, $this->session->get('id'));
-                $this->session->set('edit_boss', 'L\' boss a bien été modifié');
-                header('Location: ../public/index.php?route=administration');
+    public function editBoss(Parameter $post, $bossId){
+        if($this->checkModerateur()){
+            $boss = $this->bossDAO->getOneboss($bossId);
+            if($post->get('submit')) {
+                $errors = $this->validation->validate($post, 'boss');
+                if(!$errors) {
+                    $this->bossDAO->editBoss($post, $bossId, $this->session->get('id'));
+                    $this->session->set('edit_boss', 'L\' boss a bien été modifié');
+                    header('Location: ../public/index.php?route=administration');   
+                }
+                
+                return $this->view->render('edit_boss', [
+                    'boss' => $boss,
+                    'errors' => $errors,
+                ]);
+
             }
             return $this->view->render('edit_boss', [
-                'post' => $post,
-                'errors' => $errors,
+                'boss' => $boss,
             ]);
-
         }
-        $post->set('id', $boss->getId());
-        $post->set('title', $boss->getTitle());
-        $post->set('content', $boss->getContent());
-        $post->set('author', $boss->getAuthor());
-
-        return $this->view->render('edit_boss', [
-            'post' => $post
-        ]);
     }
     public function deleteBoss($bossId){
         $this->bossDAO->deleteBoss($bossId);
         $this->session->set('delete_boss', 'Le boss a bien été supprimé');
         header('Location: ../public/index.php?route=administration');
     }
+    public function deleteRaid($raidId){
+        $this->raidDAO->deleteRaid($raidId);
+        $this->session->set('delete_raid', 'Le raid a bien été supprimé');
+        header('Location: ../public/index.php?route=administration');
+    }
     public function deleteExtension($extensionId){
-        echo 'backcontroller';
         $this->extensionDAO->deleteExtension($extensionId);
         $this->session->set('delete_extension', 'L\'extension a bien été supprimé');
         header('Location: ../public/index.php?route=administration');
@@ -140,9 +159,16 @@ class BackController extends Controller{
     }
     public function updatePassword(Parameter $post){
         if($post->get('submit')) {
-            $this->userDAO->updatePassword($post, $this->session->get('pseudo'));
-            $this->session->set('update_password', 'Le mot de passe a été mis à jour');
-            header('Location: ../public/index.php?route=profile');
+            $errors = $this->validation->validate($post, 'User');
+            if(!$errors) {
+                $this->userDAO->updatePassword($post, $this->session->get('pseudo'));
+                $this->session->set('update_password', 'Le mot de passe a été mis à jour');
+                header('Location: ../public/index.php?route=profile');
+            }
+            return $this->view->render('update_password', [
+                'post' => $post,
+                'errors' => $errors
+            ]);
         }
         return $this->view->render('update_password');
     }

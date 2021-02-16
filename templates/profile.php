@@ -14,5 +14,5 @@
             <?php } ?>       
     </div>
     <br>
-    <a class="bouton4" href="../public/index.php">Accueil</a>
+    <a class="btn btn-primary" href="../public/index.php">Accueil</a>
 </div>

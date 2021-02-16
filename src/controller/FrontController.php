@@ -7,11 +7,11 @@ use App\src\DAO\ExtensionDAO;
 class FrontController extends Controller{
     public function home(){
         $boss = $this->bossDAO->getAllBoss();
-        $extension = $this->extensionDAO->getAllExtension();
+        $extension = $this->extensionDAO->getAllRelations();
         return $this->view->render('home', [
            'allboss' => $boss,
-           'allextension' => $extension
-        ]);
+           'allExtension' => $extension
+        ]); 
     }
     
     public function boss($bossId){
@@ -46,12 +46,13 @@ class FrontController extends Controller{
                 $this->commentDAO->addComment($post, $bossId, $this->session->get('id'));
                 $this->session->set('add_comment', 'Le nouveau commentaire a bien été ajouté');
                 header('Location: ../public/index.php');
+
             }
             $boss = $this->bossDAO->getOneboss($bossId);
             $comments = $this->commentDAO->getCommentsFromBoss($bossId);
             return $this->view->render('single', [
                 'boss' => $boss,
-                'comments' => $comments,
+                'allComments' => $comments,
                 'post' => $post,
                 'errors' => $errors
             ]);

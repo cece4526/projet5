@@ -43,6 +43,9 @@ class Router{
                 elseif($route === 'deleteBoss'){
                     $this->backController->deleteBoss($this->request->getGet()->get('bossId'));
                 }
+                elseif($route === 'deleteRaid'){
+                    $this->backController->deleteRaid($this->request->getGet()->get('raidId'));
+                }
                 elseif($route === 'deleteExtension'){
                     $this->backController->deleteExtension($this->request->getGet()->get('extensionId'));
                 }

@@ -1,3 +1,21 @@
+@font-face {
+    font-family: 'fontawesome';
+    src: url('fonts/fontawesome/fontawesome-webfont.eot');
+    src: url('fonts/fontawesome/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/fontawesome/fontawesome-webfont.woff') format('woff'),
+         url('fonts/fontawesome/fontawesome-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'glyphicons';
+    src: url('fonts/glyphicons/glyphicons-halflings-regular.eot');
+    src: url('fonts/glyphicons/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/glyphicons/glyphicons-halflings-regular.woff') format('woff'),
+         url('fonts/glyphicons/glyphicons-halflings-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 body,html{
     margin: 0;
     padding: 0;

@@ -1,0 +1,185 @@
+body,html{
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    overflow-x: hidden;
+    font-family: sans-serif;
+    background: #f2f2f2;
+    line-height: 1.4;
+}
+*:focus{
+    border: none!important;
+    outline: none!important;
+}
+@font-face {
+    font-family: 'fontawesome';
+    src: url('fonts/fontawesome-webfont.eot');
+    src: url('fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/fontawesome-webfont.woff') format('woff'),
+         url('fonts/fontawesome-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+#container__caroussel{
+    .carousel{
+        display: none;
+    }
+}
+.item{
+    margin: 40px 10px;
+    background-color: whitesmoke;
+    box-shadow: 0 15px 35px #3232321a,0 5px 15px #0000001a;
+    transition: transform 0.3s;
+    transform: translate(0, -1px,0);
+    img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    &__body{
+        padding: 25px;
+    }
+    &__title{
+        font-size: 24px;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #232323;
+    }
+    &__descrition{
+        color: #585858;
+    }
+}
+#carousel1{
+    width: 100%;
+    margin: auto;
+    .carousel{
+
+        display: block;
+    }
+}
+/**
+carousel
+*/
+.carousel{
+    position: relative;
+    overflow: hidden;
+    height: 390px;
+    &__item{
+        float: left;
+    }
+    @keyframes slider {
+        0%, 45%, 100%   { left: 0 }
+        50%, 95%        { left: -100% }
+    }
+    &__container{
+        animation: slider 5s infinite;
+        transition: transform 0.3s;
+        transform: translate3d(0, 0, 0);
+        &:after{
+        content: '';
+        clear: both;
+        display: table;
+        }
+    }
+    &__next, &__prev, &__play, &__pause{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-top: -20px;
+        box-shadow: 0 15px 35px #3232321a,0 5px 15px #0000001a;
+        cursor: pointer;
+        transition: transform 0.3s, opacity 0.3s;
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+
+    &__prev{
+        top: 50%;
+        left: 0px;
+        background: whitesmoke url(../sass/imageCaroussel/flecheg.png) center center no-repeat ;
+        background-size: 20px 20px;
+        &--hidden {
+            opacity: 0;
+        }
+    }
+    &__next{
+        top: 50%;
+        right: 0px;
+        background: whitesmoke url(../sass/imageCaroussel/fleched.png) center center no-repeat ;
+        background-size: 20px 20px;
+        &--hidden {
+            opacity: 0;
+        }
+    }
+    &__play{
+        right: 1%;
+        bottom: 1%;
+        background: grey url(../sass/imageCaroussel/play.png) center center no-repeat ;
+        background-size: 20px 20px;
+    }
+    &__pause{
+        right: 8%;
+        bottom: 1%;
+        background: grey url(../sass/imageCaroussel/pause.png) center center no-repeat ;
+        background-size: 20px 20px;
+    }
+    &__pagination{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        display: none;
+        
+        &__button{
+            background-color: whitesmoke;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 3px;
+            box-shadow: 0 2px 5px #3232321a;
+            transition: transform 0.3s;
+            cursor: pointer;
+            &--active, &:hover{
+                transform: scale(1.4);
+            }
+        }
+    }
+}
+figcaption {
+    position: absolute;
+    top: 70%;
+    margin-left: 2%;
+}
+@media screen and (max-width: 825px){
+    #container{
+        display: block;
+    }
+    .carousel{
+        height: auto;
+        &__next, &__prev, &__play, &__pause{
+            width: 20px;
+            height: 20px;
+        }
+    
+        &__prev{
+            left: 5px;
+        }
+        &__next{
+            right: 5px
+        }
+    }
+}
+@media screen and (min-width: 800px){
+    .carousel__pagination{
+        display: block;
+    }
+}
+@media screen and (min-width: 1025px){
+    .carousel{
+        height: 25%;
+    }
+}

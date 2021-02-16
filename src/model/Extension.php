@@ -24,10 +24,6 @@ class Extension{
     private $raids = [];
 
     /**
-     * @var array <boss>
-     */
-    private $boss = [];
-    /**
      * @return int
      */
     public function getId(){
@@ -85,6 +81,8 @@ class Extension{
     */
     public function addRaids(Raid $raid)
     {
-       $this->raids[] = $raid;
+        if (array_key_exists($raid->getId(), $this->raids) === false){
+            $this->raids[$raid->getId()] = $raid;
+        } 
     }
 }

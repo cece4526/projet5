@@ -1,5 +1,5 @@
+<script src="js/Session.js"></script>
 <?php $this->title = "Connexion"; ?>
-<script type="module" src="js/main.js"></script>
 <h3>Connexion</h3>
 <?= $this->session->show('error_login'); ?>
 <div>
@@ -12,3 +12,8 @@
     </form>
     <a href="../public/index.php">Retour à l'accueil</a>
 </div>
+<script> 
+    let session = new Session;
+    session.init();
+</script>
+

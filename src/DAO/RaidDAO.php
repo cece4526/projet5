@@ -39,6 +39,11 @@ class RaidDAO extends DAO {
     }
     public function addraid(Parameter $post, $extensionId){
         $sql = 'INSERT INTO raid (raid_title, raid_createdAt, raid_extension_id) VALUES (?, NOW(), ?)';
-        $this->createQuery($sql, [$post->get('raid_title'), $extensionId]);
+        $this->createQuery($sql, [$post->get('title'), $extensionId]);
+    }
+    public function deleteRaid($raidId){
+        
+        $sql = 'DELETE FROM raid WHERE raid_id = ?';
+        $this->createQuery($sql, [$raidId]);
     }
 }
