@@ -1,4 +1,5 @@
-<div>
+<?php include('header.php'); ?>
+<div class="mt-perso">
   <aside><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4424790/Mirror.png" alt="404 Image" />
   </aside>
   <main>

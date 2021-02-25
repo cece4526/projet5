@@ -1,9 +1,8 @@
 <?php $this->title = 'Administration'; ?>
-
-<div class="center">
+<?php include('header.php'); ?>
+<div class="container center">
     <div class="content_center">
-        <h3>Administration</h3>
-        <a class="margin btn btn-primary" href="../public/index.php">Accueil</a>
+        <h3 class="com_color">Administration</h3>
         <a class="btn btn-primary" href="../public/index.php?route=addExtension">ajouté un nouvel extension</a>
         <div class="message">
             <p class="message_text">
@@ -16,7 +15,7 @@
                 <?= $this->session->show('delete_user'); ?>
             </p>
         </div>
-        <h4>Extensions</h4>
+        <h3 class="com_color">Extensions</h3>
         <?php 
             foreach($allExtension as $extension)
             {
@@ -48,7 +47,7 @@
             <?php }  ?>
 
            
-        <h2>Commentaires signalés</h2>
+        <h3 class="com_color">Commentaires signalés</h3>
         <table class="table-responsive">
             <tr>
                 <th scope="row">Id</th>
@@ -76,7 +75,7 @@
             ?>
         </table>
 
-        <h2>Utilisateurs</h2>
+        <h2 class="com_color">Utilisateurs</h2>
         <table class="table-responsive">
             <tr class="td_color">
                 <th scope="row">Id</th>
@@ -103,7 +102,6 @@
                 <?php
             }
             ?>
-        </table>    
-        <a class="margin btn btn-primary" href="../public/index.php">Accueil</a>
+        </table>
     </div>
 </div>

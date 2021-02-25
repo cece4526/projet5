@@ -1,12 +1,3 @@
-body,html{
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-    overflow-x: hidden;
-    font-family: sans-serif;
-    background: #f2f2f2;
-    line-height: 1.4;
-}
 *:focus{
     border: none!important;
     outline: none!important;
@@ -63,7 +54,7 @@ carousel
 .carousel{
     position: relative;
     overflow: hidden;
-    height: 390px;
+    height: 515px;
     &__item{
         float: left;
     }
@@ -159,7 +150,7 @@ figcaption {
         display: block;
     }
     .carousel{
-        height: auto;
+        height: 225px;
         &__next, &__prev, &__play, &__pause{
             width: 20px;
             height: 20px;
@@ -172,14 +163,12 @@ figcaption {
             right: 5px
         }
     }
-}
-@media screen and (min-width: 800px){
-    .carousel__pagination{
-        display: block;
+    figcaption{
+        top: 60%;
     }
 }
-@media screen and (min-width: 1025px){
-    .carousel{
-        height: 25%;
+@media screen and (min-width: 768px){
+    .carousel__pagination{
+        display: block;
     }
 }

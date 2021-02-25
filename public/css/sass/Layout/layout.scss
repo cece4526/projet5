@@ -8,7 +8,10 @@ header{
 }
 #color{
     &_body{
-        background-color: $body;
+        background-image: url(../../images/logo_outlawed.png);
+        background-attachment: fixed;
+        background-position: top;
+        background-repeat: no-repeat;
     }
     &_boss{
         background-color: $body;
@@ -19,20 +22,44 @@ header{
 .card_home{
     &_color{
         border-radius: 5px;
-        background-color: rgb(245, 245, 245);
+        background-color: $body;
     }
 }
 .text_align{
     text-align: center;
+    margin-bottom: 1%;
 }
 .actions{
     padding: 10px;
 }
 .com_color{
-    background-color: white;
+    background-color: $body;
+    width: 25%;
+    margin: auto;
+    text-align: center;
 }
 iframe{
     @media screen and (max-width: 800px){
         display: none;
+    }
+}
+.mt-perso{
+    margin-top: 11.5%;
+    @media screen and (max-width: 800px) {
+        margin-top: 25%;
+    }
+}
+.mt-perso2{
+    margin-top: 15%;
+}
+figcaption{
+    a {
+        color: whitesmoke;
+        &:hover{
+            color: whitesmoke;
+        }
+    }
+    &:hover{
+        background-color: whitesmoke;
     }
 }

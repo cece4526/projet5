@@ -9,11 +9,7 @@
     <script src="https://cdn.tiny.cloud/1/ye3lj6zon9s9sgu48dzjieh2sgfp3h7xt5xoowgbfypcz3uw/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body id="color_body">
-    <header>
-      <h1>OUTLAWED</h1>
-      <h2>guilde PVP et PVE</h2>
-    </header>
-    <section class="container"> 
+    <section class="container" style="margin-right: 0px;"> 
         <?= $content ?>
     </section>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

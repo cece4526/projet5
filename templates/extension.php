@@ -1,5 +1,6 @@
 <?php $this->title ="extension"; ?>
-<div class="text_align">
+<?php include('header.php'); ?>
+<div class="container text_align mt-perso">
     <h2><?=htmlspecialchars($extensions->getTitle());?></h2>
     <li class="nav-item active"><a class="btn btn-primary" href="../public/index.php?route=administration">Administration</a></li>
     <h3>Raids</h3>

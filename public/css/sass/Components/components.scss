@@ -67,7 +67,7 @@ li {
     list-style:none !important;
     color:#FFF;
     padding:10px;
-    font-size:20px;
+    font-size:17px;
     text-decoration:none;
     }
      
@@ -79,15 +79,15 @@ nav ul {
      
 nav ul li {
     list-style: none;
-    line-height:15px;
+    line-height:5px;
     float:left;
     background-color:#086972;
     }
      
 nav ul li a {
     color:#FFF;
-    padding:6px;
-    font-size:20px;
+    padding:4px;
+    font-size:17px;
     text-decoration:none;
     &:hover{
         color: #A7FF83;
@@ -113,6 +113,11 @@ li > a:only-child:after { content: ''; }
 .tab{
     display: flex;
     flex-direction: row-reverse;
+}
+.boxh{
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
 }
 
 

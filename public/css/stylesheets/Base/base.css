@@ -16,30 +16,26 @@
 body, html {
   margin: 0;
   padding: 0;
-  min-height: 100%;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  justify-content: center;
+  justify-content: flex-end;
+  overflow-x: hidden;
+  width: 100%;
 }
 
-/* line 26, ../../sass/Base/base.scss */
+/* line 27, ../../sass/Base/base.scss */
 html {
   margin: auto;
   display: flex;
 }
 
-/* line 30, ../../sass/Base/base.scss */
-body {
-  width: 90%;
-}
-
-/* line 33, ../../sass/Base/base.scss */
+/* line 32, ../../sass/Base/base.scss */
 #content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* line 38, ../../sass/Base/base.scss */
+/* line 37, ../../sass/Base/base.scss */
 .margin {
   margin: 5px;
 }

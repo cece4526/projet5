@@ -35,7 +35,13 @@ class BackController extends Controller{
             return true;
         }
     }
-
+    public function menu()
+    {
+        $extensions = $this->extensionDAO->getAllRelations();
+        return $this->view->render('menu',[
+            'allExtension' => $extensions
+        ]); 
+    }
     public function administration(){
         if($this->checkAdmin()) {
             $extensions = $this->extensionDAO->getAllRelations();

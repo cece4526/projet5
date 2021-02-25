@@ -1,4 +1,5 @@
 <?php $this->title = "addBoss"; ?>
+<?php include('header.php'); ?>
 <script>
       tinymce.init({selector: '#contentAddArtticle',
         plugins: [
@@ -13,9 +14,10 @@
         favs: {title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons'}
         },
         menubar: 'favs file edit view insert format tools table help'
-      });</script>
-<h3>Nouveau boss</h3>
-<div>
-    <?php include('form_boss.php');?>
-    <a href="../public/index.php">Retour à l'accueil</a>
+});</script>
+<div class="container mt-perso">
+    <h3>Nouveau boss</h3>
+    <div>
+        <?php include('form_boss.php');?>
+    </div>
 </div>

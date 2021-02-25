@@ -45,17 +45,27 @@ class FrontController extends Controller{
             if(!$errors) {
                 $this->commentDAO->addComment($post, $bossId, $this->session->get('id'));
                 $this->session->set('add_comment', 'Le nouveau commentaire a bien été ajouté');
-                header('Location: ../public/index.php');
 
             }
-            $boss = $this->bossDAO->getOneboss($bossId);
+            /*$boss = $this->bossDAO->getOneboss($bossId);
             $comments = $this->commentDAO->getCommentsFromBoss($bossId);
             return $this->view->render('single', [
                 'boss' => $boss,
                 'allComments' => $comments,
                 'post' => $post,
                 'errors' => $errors
-            ]);
+            ]);*/
+            header('Content-Type: application/json');
+            echo json_encode(array (
+                'result' => '201',
+                'comment' => $post->get('content'),
+                'author' => $this->session->get('pseudo')
+                ));
+        }
+        else{
+            header('Content-Type: application/json');
+            echo json_encode(array ('result' => 'error 500'));
+
         }
     }
     public function flagComment($commentId){

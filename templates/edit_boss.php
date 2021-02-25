@@ -1,4 +1,5 @@
 <?php $this->title = "Modifier l'boss"; ?>
+<?php include('header.php'); ?>
 <script>
       tinymce.init({selector: '#contentAddArtticle',
         plugins: [
@@ -14,8 +15,9 @@
         },
         menubar: 'favs file edit view insert format tools table help'
       });</script>
-<h3>Editer un boss</h3>
-<div>
-    <?php include('form_boss.php');?>
-    <a href="../public/index.php">Retour à l'accueil</a>
+<div class="container mt-perso">
+    <h3>Editer un boss</h3>
+    <div>
+        <?php include('form_boss.php');?>
+    </div>
 </div>
