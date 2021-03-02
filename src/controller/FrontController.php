@@ -40,24 +40,18 @@ class FrontController extends Controller{
     }
     public function addComment(Parameter $post, $bossId)
     {
+        var_dump($post);
+        die;
         if($post->get('submit')) {
             $errors = $this->validation->validate($post, 'Comment');
+            
             if(!$errors) {
-                $this->commentDAO->addComment($post, $bossId, $this->session->get('id'));
-                $this->session->set('add_comment', 'Le nouveau commentaire a bien été ajouté');
-
+                $this->commentDAO->addComment($post, $bossId, $this->session->get('id'));;
             }
-            /*$boss = $this->bossDAO->getOneboss($bossId);
-            $comments = $this->commentDAO->getCommentsFromBoss($bossId);
-            return $this->view->render('single', [
-                'boss' => $boss,
-                'allComments' => $comments,
-                'post' => $post,
-                'errors' => $errors
-            ]);*/
+
             header('Content-Type: application/json');
             echo json_encode(array (
-                'result' => '201',
+                'result' => '200',
                 'comment' => $post->get('content'),
                 'author' => $this->session->get('pseudo')
                 ));

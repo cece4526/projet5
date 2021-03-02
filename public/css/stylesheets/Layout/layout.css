@@ -1,18 +1,19 @@
 /*
-Error: Undefined variable: "$header".
-        on line 3 of C:/wamp64/www/P05_Dupre_Cedric/P05_code_source/public/css/sass/Layout/layout.scss
+Error: Undefined variable: "$titleColor".
+        on line 4 of C:/wamp64/www/P05_Dupre_Cedric/P05_code_source/public/css/sass/Layout/layout.scss
 
 1: 
 2: header{
-3:     background-color: $header;
+3:     background: rgba($color: #ffffff, $alpha: 0.1);
 4:     color: $titleColor;
 5:     h1,h2{
 6:         text-align: center;
 7:     }
 8: }
+9: #color{
 
 Backtrace:
-C:/wamp64/www/P05_Dupre_Cedric/P05_code_source/public/css/sass/Layout/layout.scss:3
+C:/wamp64/www/P05_Dupre_Cedric/P05_code_source/public/css/sass/Layout/layout.scss:4
 C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/script/tree/node.rb:58:in `perform'
 C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.4.25/lib/sass/tree/visitors/perform.rb:398:in `visit_prop'
@@ -64,4 +65,4 @@ C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/sass-3.4.25/vendor/listen/lib/listen/adap
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$header\".\A         on line 3 of C:/wamp64/www/P05_Dupre_Cedric/P05_code_source/public/css/sass/Layout/layout.scss\A \A 1: \A 2: header{\A 3:     background-color: $header;\A 4:     color: $titleColor;\A 5:     h1,h2{\A 6:         text-align: center;\A 7:     }\A 8: }"; }
+  content: "Error: Undefined variable: \"$titleColor\".\A         on line 4 of C:/wamp64/www/P05_Dupre_Cedric/P05_code_source/public/css/sass/Layout/layout.scss\A \A 1: \A 2: header{\A 3:     background: rgba($color: #ffffff, $alpha: 0.1);\A 4:     color: $titleColor;\A 5:     h1,h2{\A 6:         text-align: center;\A 7:     }\A 8: }\A 9: #color{"; }

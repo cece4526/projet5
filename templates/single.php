@@ -1,7 +1,6 @@
 <?php $this->title ="boss"; ?>
 <?php include('header.php'); ?>
 <div class="container mt-perso">
-    <div class="text-center"><a class="margin btn btn-primary" href="../public/index.php">Accueil</a></div>
     <article class="card_home_border card_home_width card_home_color">
         <h2><?=htmlspecialchars($boss->getTitle());?></h2>
         <p><?= strip_tags($boss->getContent(), '<br><strong><em><p><iframe>');?></p>
@@ -17,16 +16,20 @@
 
     <div id="comments" class="text-left" style="margin-left: 50px;">
         <?php if($this->session->get('role') === 'user' OR $this->session->get('role') === 'admin') {?>
-            <h3>Ajouter un commentaire</h3> 
-        <?php include('Form_comment.php'); ?> 
+            <h3 class="com_color">Ajouter un commentaire</h3> 
+            <div class="boxh"><?php include('Form_comment.php'); ?></div>
         <?php }?>
-        <h3>Commentaires</h3>
+        <h3 class="com_color">Commentaires</h3>
+        <div>
+            <h4 id="pseudoCom"></h4>
+            <p id="contentCom"></p>
+        </div>
         <?php
             foreach($allComments as $comment){?>
-                <div class="card_home_border card_home_color">
-                <h4 id="commentPseudo"><?= htmlspecialchars($comment->getPseudo());?></h4>
-                <p id="commentContent"><?=htmlspecialchars($comment->getContent());?></p>
-                <p id="commentDate">Posté le <?= htmlspecialchars($comment->getCreatedAt());?></p>
+                <div class="card_home_border card_home_color margin">
+                    <h4 id="commentPseudo"><?= htmlspecialchars($comment->getPseudo());?></h4>
+                    <p id="commentContent"><?=htmlspecialchars($comment->getContent());?></p>
+                    <p id="commentDate">Posté le <?= htmlspecialchars($comment->getCreatedAt());?></p>
                 <?php
                 if($comment->isFlag()) {?>
                     <p>Ce commentaire a déjà été signalé</p>
@@ -43,3 +46,4 @@
             ;?> 
     </div>
 </div>
+<script src="../public/js/comments.js"></script>

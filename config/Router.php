@@ -23,7 +23,6 @@ class Router{
 
     public function run(){
         $route = $this->request->getGet()->get('route');
-
         try{
             if($route !== NULL){             
                 if($route === 'boss'){

@@ -43,7 +43,7 @@ html {
 
 /* line 2, ../sass/Layout/layout.scss */
 header {
-  background-color: #071a52;
+  background: rgba(255, 255, 255, 0.1);
   color: #a7ff83;
 }
 /* line 5, ../sass/Layout/layout.scss */
@@ -68,13 +68,13 @@ header h1, header h2 {
 /* line 23, ../sass/Layout/layout.scss */
 .card_home_color {
   border-radius: 5px;
-  background-color: #17b978;
+  background-color: rgba(23, 185, 120, 0.9);
 }
 
 /* line 28, ../sass/Layout/layout.scss */
 .text_align {
   text-align: center;
-  margin-bottom: 1%;
+  margin-bottom: 2%;
 }
 
 /* line 32, ../sass/Layout/layout.scss */
@@ -84,46 +84,95 @@ header h1, header h2 {
 
 /* line 35, ../sass/Layout/layout.scss */
 .com_color {
-  background-color: #17b978;
-  width: 25%;
+  background-color: rgba(23, 185, 120, 0.75);
   margin: auto;
+  text-align: center;
+  margin-bottom: 2%;
+  width: 35%;
+}
+@media screen and (max-width: 800px) {
+  /* line 35, ../sass/Layout/layout.scss */
+  .com_color {
+    width: 50%;
+  }
+}
+/* line 44, ../sass/Layout/layout.scss */
+.com_color_profile {
+  background: rgba(23, 185, 120, 0.7);
+  width: 75%;
+}
+
+/* line 49, ../sass/Layout/layout.scss */
+.form_color {
+  background-color: rgba(23, 185, 120, 0.75);
+  width: 100%;
+  margin: 2% auto 2% auto;
   text-align: center;
 }
 
 @media screen and (max-width: 800px) {
-  /* line 41, ../sass/Layout/layout.scss */
+  /* line 55, ../sass/Layout/layout.scss */
   iframe {
     display: none;
   }
 }
 
-/* line 46, ../sass/Layout/layout.scss */
+/* line 60, ../sass/Layout/layout.scss */
 .mt-perso {
-  margin-top: 11.5%;
+  margin-top: 15%;
 }
 @media screen and (max-width: 800px) {
-  /* line 46, ../sass/Layout/layout.scss */
+  /* line 60, ../sass/Layout/layout.scss */
   .mt-perso {
-    margin-top: 25%;
+    margin-top: 50%;
   }
 }
 
-/* line 52, ../sass/Layout/layout.scss */
+/* line 66, ../sass/Layout/layout.scss */
+.mt-perso-home {
+  margin-top: 15%;
+}
+@media screen and (max-width: 800px) {
+  /* line 66, ../sass/Layout/layout.scss */
+  .mt-perso-home {
+    margin-top: 30%;
+  }
+}
+
+/* line 72, ../sass/Layout/layout.scss */
 .mt-perso2 {
   margin-top: 15%;
 }
+@media screen and (max-width: 800px) {
+  /* line 72, ../sass/Layout/layout.scss */
+  .mt-perso2 {
+    margin-top: 50%;
+  }
+}
 
-/* line 56, ../sass/Layout/layout.scss */
+/* line 79, ../sass/Layout/layout.scss */
 figcaption a {
   color: whitesmoke;
 }
-/* line 58, ../sass/Layout/layout.scss */
+/* line 81, ../sass/Layout/layout.scss */
 figcaption a:hover {
   color: whitesmoke;
 }
-/* line 62, ../sass/Layout/layout.scss */
+/* line 85, ../sass/Layout/layout.scss */
 figcaption:hover {
   background-color: whitesmoke;
+}
+
+/* line 89, ../sass/Layout/layout.scss */
+.nav-background {
+  background-color: #086972;
+}
+
+/* line 92, ../sass/Layout/layout.scss */
+.raid_article {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 /* line 1, ../sass/Pages/home.scss */
@@ -159,9 +208,9 @@ figcaption:hover {
 /* line 22, ../sass/Pages/home.scss */
 .card_home_border {
   margin: auto;
+  margin-bottom: 2%;
   padding: 10px;
-  border: 1px solid #ccc;
-  box-shadow: 1px 1px 3px #999;
+  box-shadow: 10px 10px 3px #999;
 }
 
 /* line 1, ../sass/Components/components.scss */
@@ -260,38 +309,44 @@ li {
 
 /* line 74, ../sass/Components/components.scss */
 nav ul {
-  background-color: #A7FF83;
   padding: 0;
   margin: 0;
 }
 
-/* line 80, ../sass/Components/components.scss */
+/* line 79, ../sass/Components/components.scss */
 nav ul li {
   list-style: none;
   line-height: 5px;
   float: left;
-  background-color: #086972;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+@media screen and (max-width: 800px) {
+  /* line 79, ../sass/Components/components.scss */
+  nav ul li {
+    line-height: 15px;
+    background-color: rgba(7, 26, 82, 0.9);
+  }
 }
 
-/* line 87, ../sass/Components/components.scss */
+/* line 90, ../sass/Components/components.scss */
 nav ul li a {
   color: #FFF;
   padding: 4px;
   font-size: 17px;
   text-decoration: none;
 }
-/* line 92, ../sass/Components/components.scss */
+/* line 95, ../sass/Components/components.scss */
 nav ul li a:hover {
   color: #A7FF83;
 }
 
-/* line 96, ../sass/Components/components.scss */
+/* line 99, ../sass/Components/components.scss */
 nav ul li ul {
   display: none;
 }
 
 /* Rend le menu d├®roulant cach├® par d├®faut */
-/* line 98, ../sass/Components/components.scss */
+/* line 101, ../sass/Components/components.scss */
 nav ul li:hover ul {
   /* Affiche la dropNav au survol de la souris avec la class .drop */
   z-index: 99999;
@@ -301,33 +356,55 @@ nav ul li:hover ul {
   margin-left: -10px;
 }
 
-/* line 106, ../sass/Components/components.scss */
+/* line 109, ../sass/Components/components.scss */
 nav ul li:hover ul li {
   float: none;
 }
 
-/* line 109, ../sass/Components/components.scss */
+/* line 112, ../sass/Components/components.scss */
 li > a:after {
   content: "\f201";
 }
 
 /* Changer ce afin de changer le symbole du menu d├®roulant */
-/* line 111, ../sass/Components/components.scss */
+/* line 114, ../sass/Components/components.scss */
 li > a:only-child:after {
   content: '';
 }
 
-/* line 113, ../sass/Components/components.scss */
+/* line 116, ../sass/Components/components.scss */
 .tab {
   display: flex;
   flex-direction: row-reverse;
 }
 
-/* line 117, ../sass/Components/components.scss */
+/* line 120, ../sass/Components/components.scss */
 .boxh {
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-end;
+}
+@media screen and (max-width: 800px) {
+  /* line 120, ../sass/Components/components.scss */
+  .boxh {
+    display: block;
+  }
+}
+
+/* line 129, ../sass/Components/components.scss */
+.box_connection {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+@media screen and (max-width: 800px) {
+  /* line 135, ../sass/Components/components.scss */
+  .d_none {
+    display: none !important;
+  }
 }
 
 /* line 1, ../sass/Pages/profil.scss */
@@ -542,7 +619,7 @@ figcaption {
     top: 60%;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   /* line 171, ../sass/caroussel.scss */
   .carousel__pagination {
     display: block;

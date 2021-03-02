@@ -16,5 +16,5 @@ else{
     <label for="content">Contenu</label><br>
     <textarea id="contentAddArtticle" name="content"><?= isset($boss) ? htmlspecialchars($boss->getContent()): ''; ?></textarea><br>
     <?= isset($errors['content']) ? $errors['content'] : ''; ?>
-    <input type="submit" value="<?= $submit; ?>" id="submit" name="submit">
+    <input class="btn btn-primary" type="submit" value="<?= $submit; ?>" id="submit" name="submit">
 </form>

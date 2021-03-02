@@ -17,14 +17,14 @@ if ($this->request->getGet()->get('route') === null){
                             <li class="deroulant "><a class=" nav-link" href="../public/index.php?route=raid&raidId=<?=htmlspecialchars($raid->getId());?>"><?= htmlspecialchars($raid->getTitle());?></a>               
                             <ul class="sous ">
                             <?php foreach ($raid->getAllBoss() as $boss){ ?>
-                                        <li class="nav-item "><a class=" nav-link " href="../public/index.php?route=boss&bossId=<?=htmlspecialchars($boss->getId());?>"><?= htmlspecialchars($boss->getTitle());?></a></li> 
+                                        <li class="nav-item nav-background"><a class=" nav-link " href="../public/index.php?route=boss&bossId=<?=htmlspecialchars($boss->getId());?>"><?= htmlspecialchars($boss->getTitle());?></a></li> 
                                 <?php 
                             } ?>
                             </ul> </li>    
                         <?php    
                         } 
                 }  
-                     if($this->session->get('role') === 'admin') { ?>
+                     if($this->session->get('role') === 'admin' || $this->session->get('role')=== 'moderateur') { ?>
                     <li class="nav-item active"><a class=" nav-link" href="../public/index.php?route=administration">Administration</a></li>
                 </ul>
             </div>

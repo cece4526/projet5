@@ -1,7 +1,7 @@
 <?php $this->title = 'Administration'; ?>
 <?php include('header.php'); ?>
 <div class="container center">
-    <div class="content_center">
+    <div class="content_center mt-perso mt-perso">
         <h3 class="com_color">Administration</h3>
         <a class="btn btn-primary" href="../public/index.php?route=addExtension">ajouté un nouvel extension</a>
         <div class="message">

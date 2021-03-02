@@ -1,6 +1,6 @@
 <?php $this->title="Accueil";?>
 <?php include('header.php'); ?>
-<div class="container mt-perso">
+<div class="container mt-perso-home">
     <div class="message">
         <p class="message_text">
             <?= $this->session->show('register'); ?>
@@ -33,7 +33,7 @@
             <div class="item">
                 <div class="item__image">
                     <img src="../public/images/nathria.jpg" alt="">
-                    <figcaption class="btn btn-primary"><a href="../public/index.php?route=raid&raidId=1">Chateau de Nathria</a></figcaption>
+                    <figcaption class="btn btn-primary"><a href="../public/index.php?route=raid&raidId=23">Chateau de Nathria</a></figcaption>
                 </div>               
             </div>
         </div>
