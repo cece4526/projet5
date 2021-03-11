@@ -81,7 +81,7 @@ nav ul li {
     line-height:5px;
     float:left;
     background-color:rgba($color: #ffffff, $alpha: 0.1);
-    @media  screen and (max-width:800px) {
+    @media  screen and (max-width:760px) {
         line-height: 15px;
         background-color: rgba($color: #071a52, $alpha: 0.9);
     }
@@ -136,6 +136,10 @@ li > a:only-child:after { content: ''; }
     @media screen and (max-width:800px) {
         display: none !important;
     }
+}
+.flex_center{
+    display: flex;
+    justify-content: center;
 }
 
 

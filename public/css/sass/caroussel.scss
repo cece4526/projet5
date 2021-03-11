@@ -145,7 +145,12 @@ figcaption {
     top: 70%;
     margin-left: 2%;
 }
-@media screen and (max-width: 825px){
+@media screen and (max-width: 1024px){
+    .carousel{
+        height: 390px;
+    }
+}
+@media screen and (max-width: 760px){
     #container{
         display: block;
     }

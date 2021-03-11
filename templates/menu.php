@@ -56,7 +56,7 @@ else{
             </button>
             <div id="navbarContent" class="collapse navbar-collapse menu_dir">
                 <ul class="navbar-nav">
-                    <li class="nav-item active"><a class="" href="../public/index.php">Accueil</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="../public/index.php">Accueil</a></li>
                 </ul>
             </div>
         </nav>

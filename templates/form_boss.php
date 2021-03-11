@@ -10,7 +10,7 @@ else{
 ?>
 
 <form method="post" action="../public/index.php?route=<?= $route; ?>">
-    <label for="title">Titre</label><br>
+    <label class="com_color" for="title">Titre</label><br>
     <input type="text" id="title" name="title" value="<?= isset($boss) ? htmlspecialchars($boss->getTitle()): ''; ?>"><br>
     <?= isset($errors['title']) ? $errors['title'] : ''; ?>
     <label for="content">Contenu</label><br>

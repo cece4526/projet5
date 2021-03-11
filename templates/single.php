@@ -2,7 +2,7 @@
 <?php include('header.php'); ?>
 <div class="container mt-perso">
     <article class="card_home_border card_home_width card_home_color">
-        <h2><?=htmlspecialchars($boss->getTitle());?></h2>
+        <h2 class="text_align"><?=htmlspecialchars($boss->getTitle());?></h2>
         <p><?= strip_tags($boss->getContent(), '<br><strong><em><p><iframe>');?></p>
         <p><?= htmlspecialchars($boss->getAuthor());?></p>
         <p>Créé le : <?= htmlspecialchars($boss->getCreatedAt());?></p>
@@ -20,9 +20,10 @@
             <div class="boxh"><?php include('Form_comment.php'); ?></div>
         <?php }?>
         <h3 class="com_color">Commentaires</h3>
-        <div>
+        <div class="card_home_border card_home_color margin">
             <h4 id="pseudoCom"></h4>
             <p id="contentCom"></p>
+            <p id="dateCom"></p>
         </div>
         <?php
             foreach($allComments as $comment){?>
@@ -37,10 +38,7 @@
                 elseif ($this->session->get('pseudo') == $comment->getPseudo() OR $this->session->get('role') === 'admin') { ?>
                     <p><a class="btn btn-primary" href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
                     <p><a class="btn btn-primary" href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a></p>
-                <?php }
-                else { ?>
-                    <p><a class="btn btn-primary" href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
-                <?php } ?>
+                <?php }  ?>
                 </div>
             <?php }
             ;?> 

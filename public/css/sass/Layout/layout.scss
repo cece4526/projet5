@@ -39,7 +39,7 @@ header{
     margin-bottom: 2%;
     width: 35%;
     @media screen and (max-width:800px) {
-        width: 50%;
+        width: 85%;
     }
     &_profile{
         background: rgba($color: $body, $alpha: 0.7);
@@ -59,19 +59,25 @@ iframe{
 }
 .mt-perso{
     margin-top: 15%;
-    @media screen and (max-width: 800px) {
+    @media  screen and (max-width:1024px) {
+        margin-top: 25%;
+    }
+    @media screen and (max-width: 760px) {
         margin-top: 50%;
     }
 }
 .mt-perso-home{
     margin-top: 15%;
-    @media screen and (max-width:800px) {
+    @media screen and (max-width:760px) {
        margin-top: 30%; 
     }
 }
 .mt-perso2{
     margin-top: 15%;
-    @media screen and (max-width:800px) {
+    @media  screen and (max-width:1024px) {
+        margin-top: 25%;
+    }
+    @media screen and (max-width:760px) {
         margin-top: 50%;
     }
 }
@@ -88,6 +94,9 @@ figcaption{
 }
 .nav-background{
     background-color: #086972;
+    @media screen and (max-width:1024px) {
+        display: none;
+    }
 }
 .raid_article{
     display: flex;

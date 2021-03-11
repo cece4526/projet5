@@ -28,6 +28,8 @@ class UserValidation extends Validation
             $this->addError($name, $error);
         }
         elseif ($name === 'password') {
+            var_dump($value);
+            die;
             $error = $this->checkPassword($name, $value);
             $this->addError($name, $error);
         }

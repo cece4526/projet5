@@ -40,26 +40,21 @@ class FrontController extends Controller{
     }
     public function addComment(Parameter $post, $bossId)
     {
-        var_dump($post);
-        die;
-        if($post->get('submit')) {
+        if($post->get('content')) {
             $errors = $this->validation->validate($post, 'Comment');
-            
             if(!$errors) {
                 $this->commentDAO->addComment($post, $bossId, $this->session->get('id'));;
             }
-
             header('Content-Type: application/json');
             echo json_encode(array (
                 'result' => '200',
-                'comment' => $post->get('content'),
+                'content' => $post->get('content'),
                 'author' => $this->session->get('pseudo')
                 ));
         }
         else{
             header('Content-Type: application/json');
             echo json_encode(array ('result' => 'error 500'));
-
         }
     }
     public function flagComment($commentId){

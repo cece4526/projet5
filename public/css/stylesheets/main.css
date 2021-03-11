@@ -60,7 +60,7 @@ header h1, header h2 {
 }
 /* line 16, ../sass/Layout/layout.scss */
 #color_boss {
-  background-color: #17b978;
+  background-color: #d9e2de;
   border: none;
   width: 100%;
 }
@@ -68,7 +68,7 @@ header h1, header h2 {
 /* line 23, ../sass/Layout/layout.scss */
 .card_home_color {
   border-radius: 5px;
-  background-color: rgba(23, 185, 120, 0.9);
+  background-color: rgba(217, 226, 222, 0.9);
 }
 
 /* line 28, ../sass/Layout/layout.scss */
@@ -84,7 +84,7 @@ header h1, header h2 {
 
 /* line 35, ../sass/Layout/layout.scss */
 .com_color {
-  background-color: rgba(23, 185, 120, 0.75);
+  background-color: rgba(217, 226, 222, 0.75);
   margin: auto;
   text-align: center;
   margin-bottom: 2%;
@@ -93,18 +93,18 @@ header h1, header h2 {
 @media screen and (max-width: 800px) {
   /* line 35, ../sass/Layout/layout.scss */
   .com_color {
-    width: 50%;
+    width: 85%;
   }
 }
 /* line 44, ../sass/Layout/layout.scss */
 .com_color_profile {
-  background: rgba(23, 185, 120, 0.7);
+  background: rgba(217, 226, 222, 0.7);
   width: 75%;
 }
 
 /* line 49, ../sass/Layout/layout.scss */
 .form_color {
-  background-color: rgba(23, 185, 120, 0.75);
+  background-color: rgba(217, 226, 222, 0.75);
   width: 100%;
   margin: 2% auto 2% auto;
   text-align: center;
@@ -121,54 +121,72 @@ header h1, header h2 {
 .mt-perso {
   margin-top: 15%;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1024px) {
+  /* line 60, ../sass/Layout/layout.scss */
+  .mt-perso {
+    margin-top: 25%;
+  }
+}
+@media screen and (max-width: 760px) {
   /* line 60, ../sass/Layout/layout.scss */
   .mt-perso {
     margin-top: 50%;
   }
 }
 
-/* line 66, ../sass/Layout/layout.scss */
+/* line 69, ../sass/Layout/layout.scss */
 .mt-perso-home {
   margin-top: 15%;
 }
-@media screen and (max-width: 800px) {
-  /* line 66, ../sass/Layout/layout.scss */
+@media screen and (max-width: 760px) {
+  /* line 69, ../sass/Layout/layout.scss */
   .mt-perso-home {
     margin-top: 30%;
   }
 }
 
-/* line 72, ../sass/Layout/layout.scss */
+/* line 75, ../sass/Layout/layout.scss */
 .mt-perso2 {
   margin-top: 15%;
 }
-@media screen and (max-width: 800px) {
-  /* line 72, ../sass/Layout/layout.scss */
+@media screen and (max-width: 1024px) {
+  /* line 75, ../sass/Layout/layout.scss */
+  .mt-perso2 {
+    margin-top: 25%;
+  }
+}
+@media screen and (max-width: 760px) {
+  /* line 75, ../sass/Layout/layout.scss */
   .mt-perso2 {
     margin-top: 50%;
   }
 }
 
-/* line 79, ../sass/Layout/layout.scss */
+/* line 85, ../sass/Layout/layout.scss */
 figcaption a {
   color: whitesmoke;
 }
-/* line 81, ../sass/Layout/layout.scss */
+/* line 87, ../sass/Layout/layout.scss */
 figcaption a:hover {
   color: whitesmoke;
 }
-/* line 85, ../sass/Layout/layout.scss */
+/* line 91, ../sass/Layout/layout.scss */
 figcaption:hover {
   background-color: whitesmoke;
 }
 
-/* line 89, ../sass/Layout/layout.scss */
+/* line 95, ../sass/Layout/layout.scss */
 .nav-background {
   background-color: #086972;
 }
+@media screen and (max-width: 1024px) {
+  /* line 95, ../sass/Layout/layout.scss */
+  .nav-background {
+    display: none;
+  }
+}
 
-/* line 92, ../sass/Layout/layout.scss */
+/* line 101, ../sass/Layout/layout.scss */
 .raid_article {
   display: flex;
   flex-direction: column;
@@ -320,7 +338,7 @@ nav ul li {
   float: left;
   background-color: rgba(255, 255, 255, 0.1);
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 760px) {
   /* line 79, ../sass/Components/components.scss */
   nav ul li {
     line-height: 15px;
@@ -405,6 +423,12 @@ li > a:only-child:after {
   .d_none {
     display: none !important;
   }
+}
+
+/* line 140, ../sass/Components/components.scss */
+.flex_center {
+  display: flex;
+  justify-content: center;
 }
 
 /* line 1, ../sass/Pages/profil.scss */
@@ -590,37 +614,43 @@ figcaption {
   margin-left: 2%;
 }
 
-@media screen and (max-width: 825px) {
+@media screen and (max-width: 1024px) {
   /* line 149, ../sass/caroussel.scss */
+  .carousel {
+    height: 390px;
+  }
+}
+@media screen and (max-width: 760px) {
+  /* line 154, ../sass/caroussel.scss */
   #container {
     display: block;
   }
 
-  /* line 152, ../sass/caroussel.scss */
+  /* line 157, ../sass/caroussel.scss */
   .carousel {
     height: 225px;
   }
-  /* line 154, ../sass/caroussel.scss */
+  /* line 159, ../sass/caroussel.scss */
   .carousel__next, .carousel__prev, .carousel__play, .carousel__pause {
     width: 20px;
     height: 20px;
   }
-  /* line 159, ../sass/caroussel.scss */
+  /* line 164, ../sass/caroussel.scss */
   .carousel__prev {
     left: 5px;
   }
-  /* line 162, ../sass/caroussel.scss */
+  /* line 167, ../sass/caroussel.scss */
   .carousel__next {
     right: 5px;
   }
 
-  /* line 166, ../sass/caroussel.scss */
+  /* line 171, ../sass/caroussel.scss */
   figcaption {
     top: 60%;
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 171, ../sass/caroussel.scss */
+  /* line 176, ../sass/caroussel.scss */
   .carousel__pagination {
     display: block;
   }

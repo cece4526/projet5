@@ -1,4 +1,4 @@
- class Session{
+export class Session{
     constructor(){
         this.login = document.getElementById('login');
         this.dataSession = {};

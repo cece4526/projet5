@@ -22,19 +22,20 @@
         </div>
         <div id="carousel1">
             <div class="item">
-                <div class="item__image">
-                    <img src="../public/images/shadowland.jpg" alt="">
-                    <figcaption class="btn btn-primary">
+                <figure class="item__image">
+                    <img src="images/shadowland.jpg" alt="">
+                        <figcaption class="btn btn-primary">
                         <a href="https://www.mamytwink.com/actualite/correctifs-du-6-fevrier-2021-bug-pour-les-outils-de-niya-bardanes">
-                        Mise à Jour et Correctifs</a
-                    ></figcaption>
-                </div>
+                        Mise à Jour et Correctifs</a>
+                        </figcaption>
+                    </img>
+                </figure>
             </div>
             <div class="item">
-                <div class="item__image">
-                    <img src="../public/images/nathria.jpg" alt="">
-                    <figcaption class="btn btn-primary"><a href="../public/index.php?route=raid&raidId=23">Chateau de Nathria</a></figcaption>
-                </div>               
+                <figure class="item__image">
+                    <img src="images/nathria.jpg" alt="">
+                    <figcaption class="btn btn-primary"><a href="index.php?route=raid&raidId=23">Chateau de Nathria</a></figcaption>
+                </figure>               
             </div>
         </div>
     </div>

@@ -173,37 +173,43 @@ figcaption {
   margin-left: 2%;
 }
 
-@media screen and (max-width: 825px) {
+@media screen and (max-width: 1024px) {
   /* line 149, ../sass/caroussel.scss */
+  .carousel {
+    height: 390px;
+  }
+}
+@media screen and (max-width: 760px) {
+  /* line 154, ../sass/caroussel.scss */
   #container {
     display: block;
   }
 
-  /* line 152, ../sass/caroussel.scss */
+  /* line 157, ../sass/caroussel.scss */
   .carousel {
     height: 225px;
   }
-  /* line 154, ../sass/caroussel.scss */
+  /* line 159, ../sass/caroussel.scss */
   .carousel__next, .carousel__prev, .carousel__play, .carousel__pause {
     width: 20px;
     height: 20px;
   }
-  /* line 159, ../sass/caroussel.scss */
+  /* line 164, ../sass/caroussel.scss */
   .carousel__prev {
     left: 5px;
   }
-  /* line 162, ../sass/caroussel.scss */
+  /* line 167, ../sass/caroussel.scss */
   .carousel__next {
     right: 5px;
   }
 
-  /* line 166, ../sass/caroussel.scss */
+  /* line 171, ../sass/caroussel.scss */
   figcaption {
     top: 60%;
   }
 }
 @media screen and (max-width: 768px) {
-  /* line 171, ../sass/caroussel.scss */
+  /* line 176, ../sass/caroussel.scss */
   .carousel__pagination {
     display: block;
   }

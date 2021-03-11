@@ -4,7 +4,7 @@ $submit = $route === 'addExtension' ? 'Ajouter' : 'Mettre à jour';
 ?>
 
 <form method="post" action="../public/index.php?route=<?= $route; ?>">
-    <label for="title">Titre</label><br>
+    <label class="com_color_profile" for="title">Titre</label><br>
     <input type="text" id="title" name="title" value="<?= isset($post) ? htmlspecialchars($post->get('title')): ''; ?>"><br>
     <?= isset($errors['title']) ? $errors['title'] : ''; ?>
     <input type="submit" value="<?= $submit; ?>" id="submit" name="submit">

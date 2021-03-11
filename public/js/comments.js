@@ -1,22 +1,27 @@
 var pseudo = document.getElementById('pseudoCom');
 var result = document.getElementById('contentCom');
-var submit = document.getElementById("formComment");
-//submit.addEventListener("submit", function(e) {
+var form = document.getElementById("formComment");
+var date = document.getElementById("dateCom");
+form.addEventListener("submit", function(e) {
     e.preventDefault();
     result.innerHTML = 'chargement...';
-    var data = new FormData(this);
+    var data = new FormData(form);
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if(xhr.readyState === 4){
             if(xhr.status === 200){
                 console.log(this.response);
-                pseudo.innerHTML= xhr;
+                pseudo.innerHTML= this.response.author;
+                result.innerHTML = this.response.content;
+                date.innerHTML = "posté a l'instant.";
             }
-            alert('impossible de contacté le serveur');
+            else{
+                alert('impossible de contacté le serveur');
+            }   
         }
     };
-    xhr.open("POST", "http://localhost/P05_Dupre_Cedric/P05_code_source/public/index.php?route=addComment", true);
+    xhr.open("POST", form.getAttribute('action'), true);
     xhr.responseType = "json";
-    xhr.send();
+    xhr.send(data);
     return false;
 })

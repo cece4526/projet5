@@ -16,7 +16,7 @@
         menubar: 'favs file edit view insert format tools table help'
 });</script>
 <div class="container mt-perso">
-    <h3>Nouveau boss</h3>
+    <h3 class="com_color">Nouveau boss</h3>
     <div>
         <?php include('form_boss.php');?>
     </div>
